@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import './App.css';
 import 'semantic-ui-css/semantic.min.css';
+import PropTypes from 'prop-types';
 
 import Header from "../header";
-import Main from "../main";
+import Main from "../../containers/main";
 
 function App({ getRandCocktail }) {
 
@@ -18,5 +19,9 @@ function App({ getRandCocktail }) {
     </div>
   );
 }
+
+App.propTypes = {
+  getRandCocktail: PropTypes.func.isRequired
+};
 
 export default App;

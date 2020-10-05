@@ -3,15 +3,17 @@ import {
     SEARCH_SEND,
     GET_COCKTAIL_RAND,
     GET_COCKTAIL_RAND_SUCCESS,
-    GET_COCKTAIL_RAND_ERROR
+    GET_COCKTAIL_RAND_ERROR,
+    VIEW_COCKTAIL_DETAIL
 } from '../action';
 
 const initialState = {
     visible: false,
     inputEntry: "",
     loading: false,
+    cocktailDetail: false,
     error: null,
-    randCocktail: null
+    randCocktail: {}
 }
 
 export default (state = initialState, action = {}) => {
@@ -35,13 +37,18 @@ export default (state = initialState, action = {}) => {
             return {
                 ...state,
                 loading: false,
-                randCocktail: action.payload
+                randCocktail: action.payload.drinks[0]
             };
         case GET_COCKTAIL_RAND_ERROR:
                 return {
                     ...state,
                     loading: false,
-                    randCocktail: action.payload
+                    error: action.payload
+                };
+            case VIEW_COCKTAIL_DETAIL:
+                return {
+                    ...state,
+                    cocktailDetail: true,
                 }
         default:
             return state;

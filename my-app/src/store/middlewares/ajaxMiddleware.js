@@ -10,12 +10,12 @@ const ajaxMiddleware = (store) => (next) => (action) => {
                 url: 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
             }).then(
                 (res) => {
-                    console.log('data' ,res.data)
+                    //console.log('data' ,res.data)
                     store.dispatch(getCocktailRandSuccess(res.data));
                 }
             ).catch(
                 (err) => {
-                    console.log(err);
+                    console.log('err' , err);
                     store.dispatch(getCocktailRandError("impossible to retrieve the data"));
                 }
             )
