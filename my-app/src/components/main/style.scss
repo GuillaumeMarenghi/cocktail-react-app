@@ -1,11 +1,15 @@
 .main-component {
-    width: 50%;
-    height: 100vh;
     background-color: #f7d4f7;
-    text-align: center;
-    &-randCard {
+    min-height: 100%;
+    background-image: url('./pexels-asad-photo-maldives-1450360.jpg');
+    background-size: cover;
+    &-container {
         display: flex;
-        justify-content: center;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    &-drinkCard {
+      margin: 1em;
     }
     & h2 {
         margin-top: 1em;

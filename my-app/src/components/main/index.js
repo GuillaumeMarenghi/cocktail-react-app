@@ -2,26 +2,31 @@ import React from 'react';
 import './style.scss';
 import PropTypes from 'prop-types';
 import DrinkCard from '../drinkCard';
-//import { Card , Button, Image} from 'semantic-ui-react'
+import Nav from '../../containers/nav';
+import Recipe from '../../containers/recipe';
 
 const Main = (props) => { 
     
     return (
     <div className="main-component">
-        <h2>Cocktail of the day</h2>
+        <Nav activeItem='home'/>
+        <div className="main-component-container">
         {!props.cocktailDetail 
-        ? <div className='main-component-randCard' >
-        <DrinkCard cocktail={props.cocktail} viewCocktailDetail={props.viewCocktailDetail}/>
+        ? 
+        props.cocktail.map( cocktail => <div key={cocktail.idDrink} className='main-component-drinkCard' >
+        <DrinkCard cocktail={cocktail} viewCocktailDetail={props.viewCocktailDetail}/>
+        </div>)
+        : <div>
+            <Recipe />
         </div>
-        : <div> recipe detail </div>
-    }
-        
+        }
+        </div>
     </div>
 )}
 
 Main.propTypes = {
     loading: PropTypes.bool.isRequired,
     cocktailDetail: PropTypes.bool.isRequired,
-    cocktail: PropTypes.object.isRequired,
+    cocktail: PropTypes.array.isRequired,
 };
 export default Main;

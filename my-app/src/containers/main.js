@@ -9,8 +9,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    viewCocktailDetail: () => {
-        dispatch(viewCocktailDetail());
+    viewCocktailDetail: (value) => {
+        dispatch(viewCocktailDetail(value));
     }
 });
 

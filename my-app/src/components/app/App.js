@@ -6,10 +6,10 @@ import PropTypes from 'prop-types';
 import Header from "../header";
 import Main from "../../containers/main";
 
-function App({ getRandCocktail }) {
+function App({ getCocktail }) {
 
   useEffect(() => {
-    getRandCocktail();
+    getCocktail();
   }, []);
 
   return (
@@ -21,7 +21,7 @@ function App({ getRandCocktail }) {
 }
 
 App.propTypes = {
-  getRandCocktail: PropTypes.func.isRequired
+  getCocktail: PropTypes.func.isRequired
 };
 
 export default App;

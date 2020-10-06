@@ -1,9 +1,11 @@
 .main-header {
-    width: 50%;
-    background-image: url('./pexels-anna-tukhfatullina-food-photographerstylist-2611814.jpg');
-    height: 100vh;
+    width: 100%;
+    /* background-image: url('./pexels-anna-tukhfatullina-food-photographerstylist-2611814.jpg'); */
     background-size: cover;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
+    margin: 0.5em;
+    &-input {
+        margin-left: 2.5em;
+    }
 }

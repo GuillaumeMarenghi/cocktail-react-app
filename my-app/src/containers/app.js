@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 import App from '../components/app/App';
-import { getCocktailRand } from '../store/action';
+import { getAllCocktail } from '../store/action';
 
 
 const mapStatetoProps = null;
 
 const mapDispatchToProps = (dispatch) => ({
-    getRandCocktail: () => {
-        dispatch(getCocktailRand())
+    getCocktail: () => {
+        dispatch(getAllCocktail())
     }
 });
 

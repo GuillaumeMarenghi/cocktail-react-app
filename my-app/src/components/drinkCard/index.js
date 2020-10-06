@@ -6,24 +6,19 @@ import { Card , Button, Image} from 'semantic-ui-react';
 const DrinkCard = ({cocktail, viewCocktailDetail}) => {
     return(
     <div>
-    <Card className='cocktail-card'>
+    <Card className='cocktail-card' >
         <Image src={cocktail.strDrinkThumb} wrapped ui={false} />
         <Card.Content>
         <Card.Header>{cocktail.strDrink}</Card.Header>
         <Card.Meta>
             <span className='date'>{cocktail.strCategory}</span>
         </Card.Meta>
-        <Card.Description>
-            {cocktail.strIngredient1} <br></br>
-            {cocktail.strIngredient2} <br></br>
-            {cocktail.strIngredient3} <br></br>
-            ...
-        </Card.Description>
         </Card.Content>
         <Card.Content extra>
             <Button 
             inverted color='purple'
-            onClick={viewCocktailDetail}
+            onClick={() => {
+                viewCocktailDetail(cocktail.idDrink)}}
             >
                 view recipe details 
             </Button>
@@ -34,6 +29,7 @@ const DrinkCard = ({cocktail, viewCocktailDetail}) => {
 
 DrinkCard.propTypes = {
     cocktail: PropTypes.object.isRequired,
+    viewCocktailDetail: PropTypes.func.isRequired
 }
 
 export default DrinkCard;
