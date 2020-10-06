@@ -7,6 +7,9 @@ export const VIEW_COCKTAIL_DETAIL = 'VIEW_COCKTAIL_DETAIL';
 export const VIEW_COCKTAIL_DETAIL_SUCCES = 'VIEW_COCKTAIL_DETAIL_SUCCES';
 export const VIEW_COCKTAIL_DETAIL_ERROR = 'VIEW_COCKTAIL_DETAIL_ERROR';
 export const BACK_TO_MAIN = 'BACK_TO_MAIN';
+export const CHANGE_TO_HOME = 'CHANGE_TO_HOME';
+export const CHANGE_TO_CAT = 'CHANGE_TO_CAT';
+export const CHANGE_TO_ALCOHOL = 'CHANGE_TO_ALCOHOL'
 
 export const searchInputChange = (payload) => ({
     type: SEARCH_INPUT_CHANGE,
@@ -49,4 +52,16 @@ export const viewCocktailDetailError = (payload) => ({
 
 export const backToMain = () => ({
     type: BACK_TO_MAIN
+});
+
+export const changeToHome = () => ({
+    type: CHANGE_TO_HOME
+});
+
+export const changeToCat = () => ({
+    type: CHANGE_TO_CAT
+});
+
+export const changeToAlcohol = () => ({
+    type: CHANGE_TO_ALCOHOL
 })

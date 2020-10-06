@@ -7,7 +7,10 @@ import {
     VIEW_COCKTAIL_DETAIL,
     VIEW_COCKTAIL_DETAIL_SUCCES,
     VIEW_COCKTAIL_DETAIL_ERROR,
-    BACK_TO_MAIN
+    BACK_TO_MAIN,
+    CHANGE_TO_HOME,
+    CHANGE_TO_CAT,
+    CHANGE_TO_ALCOHOL
 } from '../action';
 
 const initialState = {
@@ -82,6 +85,21 @@ export default (state = initialState, action = {}) => {
                 return {
                     ...state,
                     cocktailDetail: false
+                }
+            case CHANGE_TO_HOME:
+                return {
+                    ...state,
+                    activeItem: 'home'
+                }
+            case CHANGE_TO_CAT:
+                return {
+                    ...state,
+                    activeItem: 'category'
+                }
+            case CHANGE_TO_ALCOHOL:
+                return {
+                    ...state,
+                    activeItem: 'alcohol'
                 }
         default:
             return state;

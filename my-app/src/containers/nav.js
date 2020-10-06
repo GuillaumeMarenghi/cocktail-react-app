@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Nav from '../components/nav';
-import { getAllCocktail } from '../store/action';
+import { changeToHome, changeToCat, changeToAlcohol } from '../store/action';
 
 
 const mapStatetoProps = (state) => ({
@@ -8,6 +8,16 @@ const mapStatetoProps = (state) => ({
 }    
 );
 
-const mapDispatchToProps = null
+const mapDispatchToProps = (dispatch) => ({
+    changeToHome: () => {
+        dispatch(changeToHome())
+    },
+    changeToCat: () => {
+        dispatch(changeToCat())
+    },
+    changeToAlcohol: () => {
+        dispatch(changeToAlcohol())
+    }
+})
 
 export default connect(mapStatetoProps, mapDispatchToProps)(Nav);

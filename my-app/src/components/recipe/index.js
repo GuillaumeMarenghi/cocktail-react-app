@@ -23,7 +23,6 @@ const Recipe = ({backToMain, cocktail}) => {
     
     return (
     <div className="recipe">
-        <Button icon='left chevron' content='Back' onClick={backToMain}/>
         <h2>{cocktail.strDrink}</h2>
         <div className="recipe-center">
         <Image src={cocktail.strDrinkThumb} size='medium' circular />
@@ -36,7 +35,8 @@ const Recipe = ({backToMain, cocktail}) => {
         <div className='recipe-instruction'>
             <h3>Instruction</h3>
             <div>{cocktail.strInstructions}</div>
-            </div>
+        </div>
+        <Button icon='left chevron' content='Back' onClick={backToMain}/>
     </div>
 )}
 
