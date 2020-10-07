@@ -9,16 +9,9 @@ const Main = (props) => {
     return (
     <div className="main-component">
         <div className="main-component-container">
-        {!props.cocktailDetail 
-        ? 
-        props.cocktail.map( cocktail => <div key={cocktail.idDrink} className='main-component-drinkCard' >
+        {props.cocktail.map( cocktail => <div key={cocktail.idDrink} className='main-component-drinkCard' >
         <DrinkCard cocktail={cocktail} viewCocktailDetail={props.viewCocktailDetail}/>
-        </div>)
-        : 
-        <div>
-            <Recipe />
-        </div>
-        }
+        </div>)}
         </div>
     </div>
 )}

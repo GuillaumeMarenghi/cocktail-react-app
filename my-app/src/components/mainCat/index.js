@@ -1,19 +1,28 @@
 import React, { useEffect } from 'react';
 import './style.scss';
 import PropTypes from 'prop-types';
+import DrinkCard from "../drinkCard"
 
-const MainCat = ({ getCategories, getCategoryCocktail, categories, cocktailByCat }) => {
-    console.log("cocktailByCat", cocktailByCat)
+const MainCat = ({ getCategories, getCategoryCocktail, viewCocktailDetail, categories, cocktailByCat, cocktailDetail }) => {
+    
     useEffect(() => { 
         getCategories();
     }, []);
       
     return (
     <div className="main-cat-container">
+    <div className="main-cat-btn">
         {categories.map(elm => (
             <CategoryButton key={elm.strCategory} category={elm.strCategory} getCategoryCocktail={getCategoryCocktail}/>
         ))}
+    </div>  
+    <div className="main-cat-card-container">
+        {cocktailByCat.map(elm => (
+            <div key={elm.idDrink} className="main-cat-card"><DrinkCard cocktail={elm} viewCocktailDetail={viewCocktailDetail}/></div>
+        ))}
     </div>
+    </div>
+
 )}
 
 export const CategoryButton = ({ category, getCategoryCocktail}) => {

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Button, Image, List } from 'semantic-ui-react'
 
 
-const Recipe = ({backToMain, cocktail}) => { 
+const Recipe = ({cocktail}) => { 
     let APIingredient = [
         cocktail.strIngredient1,
         cocktail.strIngredient2,
@@ -35,12 +35,10 @@ const Recipe = ({backToMain, cocktail}) => {
             <h3>Instruction</h3>
             <div>{cocktail.strInstructions}</div>
         </div>
-        <Button icon='left chevron' content='Back' onClick={backToMain}/>
     </div>
 )}
 
 Recipe.propTypes = {
-    backToMain: PropTypes.func.isRequired,
     cocktail: PropTypes.object.isRequired
 };
 export default Recipe;

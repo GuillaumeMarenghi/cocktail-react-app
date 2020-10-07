@@ -15,19 +15,19 @@ const Nav = ({activeItem, changeToHome, changeToCat, changeToAlcohol}) => {
         <Menu inverted pointing secondary>
           <Link to='/'>
           <Menu.Item
-            name='most popular'
+            name='home'
             active={activeItem === 'home'}
             onClick={changeToHome}
           />
           </Link>
-          <Link to='categories'>
+          <Link exact to='/categories'>
           <Menu.Item
             name='sort by category'
             active={activeItem === 'category'}
             onClick={changeToCat}
           />
           </Link>
-          <Link to='alcohol'>
+          <Link exact to='/alcohol'>
           <Menu.Item
             name='sort by alcohol'
             active={activeItem === 'alcohol'}

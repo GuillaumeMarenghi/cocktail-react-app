@@ -1,0 +1,14 @@
+.main-cat {
+    &-container {
+        background-image: url('./pexels-picography-4784.jpg');
+        background-size: cover;
+        min-height: 100%;
+    }
+    &-card {
+        &-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+}

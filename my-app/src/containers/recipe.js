@@ -6,10 +6,8 @@ const mapStateToProps = (state) => ({
     cocktail: state.cocktailRecipe
 });
 
-const mapDispatchToProps = (dispatch) => ({
-    backToMain: () => {
-        dispatch(backToMain());
-    }
-});
+const mapDispatchToProps = null
+
+;
 
 export default connect(mapStateToProps, mapDispatchToProps)(Recipe);

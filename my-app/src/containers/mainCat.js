@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import MainCat from '../components/mainCat';
-import { getCategories, getCategoryCocktail } from '../store/action';
+import { getCategories, getCategoryCocktail, viewCocktailDetail } from '../store/action';
 
 const mapStateToProps = (state) => ({
     loading: state.loading,
     categories: state.categories,
-    cocktailByCat: state.cocktailByCat
-    
+    cocktailByCat: state.cocktailByCat,
+    coktailDetail: state.cocktailDetail 
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -15,6 +15,9 @@ const mapDispatchToProps = (dispatch) => ({
     },
     getCategoryCocktail: (value) => {
         dispatch(getCategoryCocktail(value))
+    },
+    viewCocktailDetail: (value) => {
+        dispatch(viewCocktailDetail(value));
     }
 });
 
