@@ -14,7 +14,8 @@ const Main = (props) => {
         props.cocktail.map( cocktail => <div key={cocktail.idDrink} className='main-component-drinkCard' >
         <DrinkCard cocktail={cocktail} viewCocktailDetail={props.viewCocktailDetail}/>
         </div>)
-        : <div>
+        : 
+        <div>
             <Recipe />
         </div>
         }

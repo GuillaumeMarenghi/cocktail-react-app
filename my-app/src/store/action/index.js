@@ -9,7 +9,13 @@ export const VIEW_COCKTAIL_DETAIL_ERROR = 'VIEW_COCKTAIL_DETAIL_ERROR';
 export const BACK_TO_MAIN = 'BACK_TO_MAIN';
 export const CHANGE_TO_HOME = 'CHANGE_TO_HOME';
 export const CHANGE_TO_CAT = 'CHANGE_TO_CAT';
-export const CHANGE_TO_ALCOHOL = 'CHANGE_TO_ALCOHOL'
+export const CHANGE_TO_ALCOHOL = 'CHANGE_TO_ALCOHOL';
+export const GET_CATEGORIES = 'GET_CATEGORIES';
+export const GET_CATEGORIES_SUCCES = 'GET_CATEGORIES_SUCCES';
+export const GET_CATEGORIES_ERROR = 'GET_CATEGORIES_ERROR';
+export const GET_CATEGORY_COCKTAIL = 'GET_CATEGORY_COCKTAIL';
+export const GET_CATEGORY_COCKTAIL_SUCCES = 'GET_CATEGORY_COCKTAIL_SUCCES';
+export const GET_CATEGORY_COCKTAIL_ERROR = 'GET_CATEGORY_COCKTAIL_ERROR';
 
 export const searchInputChange = (payload) => ({
     type: SEARCH_INPUT_CHANGE,
@@ -64,4 +70,33 @@ export const changeToCat = () => ({
 
 export const changeToAlcohol = () => ({
     type: CHANGE_TO_ALCOHOL
+});
+
+export const getCategories = () => ({
+    type: GET_CATEGORIES
+});
+
+export const getCategoriesSucces = (payload) => ({
+    type: GET_CATEGORIES_SUCCES,
+    payload
+});
+
+export const getCategoriesError = (payload) => ({
+    type: GET_CATEGORIES_ERROR,
+    payload
+});
+
+export const getCategoryCocktail = (payload) => ({
+    type: GET_CATEGORY_COCKTAIL,
+    payload
+})
+
+export const getCategoryCocktailSuccess = (payload) => ({
+    type: GET_CATEGORY_COCKTAIL_SUCCES,
+    payload
+})
+
+export const getCategoryCocktailError = (payload) => ({
+    type: GET_CATEGORY_COCKTAIL_ERROR,
+    payload
 })

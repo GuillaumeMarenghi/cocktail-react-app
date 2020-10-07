@@ -2,10 +2,17 @@ import axios from 'axios';
 import { 
     GET_ALL_COCKTAIL,
     VIEW_COCKTAIL_DETAIL,
+    GET_CATEGORIES,
+    GET_CATEGORY_COCKTAIL,
     getAllCocktailSuccess,
     getAllCocktailError,
     viewCocktailDetailSuccess,
-    viewCocktailDetailError
+    viewCocktailDetailError,
+    getCategoriesSucces,
+    getCategoriesError,
+    getCategoryCocktailSuccess,
+    getCategoryCocktailError,
+
     } from '../action';
 
 const ajaxMiddleware = (store) => (next) => (action) => {
@@ -38,9 +45,41 @@ const ajaxMiddleware = (store) => (next) => (action) => {
             ).catch(
                 (err) => {
                     console.log('err' , err);
-                    store.dispatch(getAllCocktailError("impossible to retrieve the data"));
+                    store.dispatch(viewCocktailDetailError("impossible to retrieve the data"));
                 }
             )
+            break;
+        case GET_CATEGORIES:
+            axios({
+                method: 'get',
+                url: 'https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list'
+            }).then(
+                (res) => {
+                    store.dispatch(getCategoriesSucces(res.data))
+                }
+            ).catch(
+                (err) => {
+                    console.log(err);
+                    store.dispatch(getCategoriesError("impossible to retrieve the data"))
+                }
+            )
+            break;
+        case GET_CATEGORY_COCKTAIL:
+            axios({
+                method: 'get',
+                url: `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${store.getState().cocktailCat}`
+            }).then(
+                (res) => {
+                    store.dispatch(getCategoryCocktailSuccess(res.data))
+                    console.log("middl", res.data)
+                }
+            ).catch(
+                (err) => {
+                    console.log(err);
+                    store.dispatch(getCategoryCocktailError("impossible to retrieve the data"))
+                }
+            )
+            break;
         default:
             return;
     }

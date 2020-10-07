@@ -10,7 +10,13 @@ import {
     BACK_TO_MAIN,
     CHANGE_TO_HOME,
     CHANGE_TO_CAT,
-    CHANGE_TO_ALCOHOL
+    CHANGE_TO_ALCOHOL,
+    GET_CATEGORIES,
+    GET_CATEGORIES_SUCCES,
+    GET_CATEGORIES_ERROR,
+    GET_CATEGORY_COCKTAIL,
+    GET_CATEGORY_COCKTAIL_SUCCES,
+    GET_CATEGORY_COCKTAIL_ERROR
 } from '../action';
 
 const initialState = {
@@ -22,7 +28,10 @@ const initialState = {
     cocktailDetailId: null,
     error: null,
     randCocktail: [],
-    cocktailRecipe: ''
+    cocktailRecipe: '',
+    categories: [],
+    cocktailCat: "",
+    cocktailByCat: []
 }
 
 export default (state = initialState, action = {}) => {
@@ -100,6 +109,46 @@ export default (state = initialState, action = {}) => {
                 return {
                     ...state,
                     activeItem: 'alcohol'
+                }
+            case GET_CATEGORIES:
+                return {
+                    ...state,
+                    loading: true
+                };
+            case GET_CATEGORIES_SUCCES:
+                return {
+                    ...state,
+                    loading: false,
+                    categories: [
+                        action.payload.drinks[0],
+                        action.payload.drinks[1],
+                        action.payload.drinks[5],
+                        action.payload.drinks[9]
+                    ]
+                }
+            case GET_CATEGORIES_ERROR:
+                return {
+                    ...state,
+                    loading: false,
+                    error: action.payload
+                }
+            case GET_CATEGORY_COCKTAIL:
+                return {
+                    ...state,
+                    loading: true,
+                    cocktailCat: action.payload
+                }
+            case GET_CATEGORY_COCKTAIL_SUCCES:
+                return {
+                    ...state,
+                    loading: false,
+                    cocktailByCat: action.payload.drinks
+                }
+            case GET_CATEGORY_COCKTAIL_ERROR:
+                return {
+                    ...state,
+                    loading: false,
+                    error: action.payload
                 }
         default:
             return state;

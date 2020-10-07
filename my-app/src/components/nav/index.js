@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, Segment, Search } from 'semantic-ui-react';
+import { Menu, Segment } from 'semantic-ui-react';
 import SearchBar from '../../containers/searchBar';
 import PropTypes from 'prop-types';
 import './style.scss';
@@ -46,7 +46,7 @@ Nav.propTypes = {
   activeItem: PropTypes.string.isRequired,
   changeToHome: PropTypes.func.isRequired,
   changeToCat: PropTypes.func.isRequired,
-  changToAlcohol: PropTypes.func.isRequired
+  changeToAlcohol: PropTypes.func.isRequired
 }
 
 export default Nav;

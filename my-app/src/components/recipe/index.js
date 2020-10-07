@@ -17,9 +17,8 @@ const Recipe = ({backToMain, cocktail}) => {
         cocktail.strIngredient9,
         cocktail.strIngredient10,
     ];
-    const ingredientsSanitize = APIingredient.filter(elm => elm != "");
-    const ingredients = ingredientsSanitize.filter( elm => elm != null);
-    console.log(ingredients);
+    const ingredientsSanitize = APIingredient.filter(elm => elm !== "");
+    const ingredients = ingredientsSanitize.filter( elm => elm !== null);
     
     return (
     <div className="recipe">
