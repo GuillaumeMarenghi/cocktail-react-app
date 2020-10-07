@@ -2,7 +2,6 @@ import React from 'react';
 import './style.scss';
 import PropTypes from 'prop-types';
 import DrinkCard from '../drinkCard';
-import Recipe from '../../containers/recipe';
 
 const Main = (props) => { 
     

@@ -4,6 +4,7 @@ import {
     VIEW_COCKTAIL_DETAIL,
     GET_CATEGORIES,
     GET_CATEGORY_COCKTAIL,
+    GET_COCKTAIL_BY_ALCOHOL,
     getAllCocktailSuccess,
     getAllCocktailError,
     viewCocktailDetailSuccess,
@@ -12,7 +13,8 @@ import {
     getCategoriesError,
     getCategoryCocktailSuccess,
     getCategoryCocktailError,
-
+    getCocktailByAlcoholSuccess,
+    getCocktailByAlcoholError,
     } from '../action';
 
 const ajaxMiddleware = (store) => (next) => (action) => {
@@ -71,12 +73,26 @@ const ajaxMiddleware = (store) => (next) => (action) => {
             }).then(
                 (res) => {
                     store.dispatch(getCategoryCocktailSuccess(res.data))
-                    console.log("middl", res.data)
                 }
             ).catch(
                 (err) => {
                     console.log(err);
                     store.dispatch(getCategoryCocktailError("impossible to retrieve the data"))
+                }
+            )
+            break;
+        case GET_COCKTAIL_BY_ALCOHOL:
+            axios({
+                method: 'get',
+                url: `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${store.getState().cocktailAlcohol}`
+            }).then(
+                (res) => {
+                    store.dispatch(getCocktailByAlcoholSuccess(res.data))
+                }
+            ).catch(
+                (err) => {
+                    console.log(err);
+                    store.dispatch(getCocktailByAlcoholError("impossible to retrieve the data"))
                 }
             )
             break;

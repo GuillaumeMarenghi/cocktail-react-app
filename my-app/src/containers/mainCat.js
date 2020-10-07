@@ -6,7 +6,6 @@ const mapStateToProps = (state) => ({
     loading: state.loading,
     categories: state.categories,
     cocktailByCat: state.cocktailByCat,
-    coktailDetail: state.cocktailDetail 
 });
 
 const mapDispatchToProps = (dispatch) => ({

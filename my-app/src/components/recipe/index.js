@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.scss';
 import PropTypes from 'prop-types';
-import { Button, Image, List } from 'semantic-ui-react'
+import { Image, List } from 'semantic-ui-react'
 
 
 const Recipe = ({cocktail}) => { 

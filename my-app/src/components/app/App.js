@@ -9,6 +9,7 @@ import Main from "../../containers/main";
 import MainCat from "../../containers/mainCat"
 import Nav from '../../containers/nav';
 import Recipe from '../../containers/recipe';
+import ByAlcohol from '../../containers/byAlcohol'
 
 function App({ getCocktail }) {
 
@@ -23,6 +24,7 @@ function App({ getCocktail }) {
       <Switch>
         <Route exact path="/" component={Main} />
         <Route exact path="/categories" component={MainCat} />
+        <Route exact path="/alcohol" component={ByAlcohol}/>
         <Route exact path="/recipe/:slug" component={Recipe} />
       </Switch>
     </div>

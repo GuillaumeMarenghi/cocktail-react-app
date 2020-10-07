@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import Recipe from '../components/recipe';
-import { backToMain } from '../store/action';
 
 const mapStateToProps = (state) => ({
     cocktail: state.cocktailRecipe

@@ -16,7 +16,10 @@ import {
     GET_CATEGORIES_ERROR,
     GET_CATEGORY_COCKTAIL,
     GET_CATEGORY_COCKTAIL_SUCCES,
-    GET_CATEGORY_COCKTAIL_ERROR
+    GET_CATEGORY_COCKTAIL_ERROR,
+    GET_COCKTAIL_BY_ALCOHOL,
+    GET_COCKTAIL_BY_ALCOHOL_SUCCESS,
+    GET_COCKTAIL_BY_ALCOHOL_ERROR
 } from '../action';
 
 const initialState = {
@@ -31,7 +34,9 @@ const initialState = {
     cocktailRecipe: '',
     categories: [],
     cocktailCat: "",
-    cocktailByCat: []
+    cocktailByCat: [],
+    cocktailAlcohol: "",
+    cocktailByAlcohol: []
 }
 
 export default (state = initialState, action = {}) => {
@@ -145,6 +150,24 @@ export default (state = initialState, action = {}) => {
                     cocktailByCat: action.payload.drinks
                 }
             case GET_CATEGORY_COCKTAIL_ERROR:
+                return {
+                    ...state,
+                    loading: false,
+                    error: action.payload
+                }
+            case GET_COCKTAIL_BY_ALCOHOL:
+                return {
+                    ...state,
+                    loading: true,
+                    cocktailAlcohol: action.payload
+                }
+            case GET_COCKTAIL_BY_ALCOHOL_SUCCESS:
+                return {
+                    ...state,
+                    loading: false,
+                    cocktailByAlcohol: action.payload.drinks
+                }
+            case GET_COCKTAIL_BY_ALCOHOL_ERROR:
                 return {
                     ...state,
                     loading: false,

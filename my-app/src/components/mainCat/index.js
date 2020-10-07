@@ -3,7 +3,7 @@ import './style.scss';
 import PropTypes from 'prop-types';
 import DrinkCard from "../drinkCard"
 
-const MainCat = ({ getCategories, getCategoryCocktail, viewCocktailDetail, categories, cocktailByCat, cocktailDetail }) => {
+const MainCat = ({ getCategories, getCategoryCocktail, viewCocktailDetail, categories, cocktailByCat }) => {
     
     useEffect(() => { 
         getCategories();
@@ -40,6 +40,9 @@ export const CategoryButton = ({ category, getCategoryCocktail}) => {
 
 MainCat.propTypes = {
     getCategories: PropTypes.func.isRequired,
-    categories: PropTypes.arrayOf(PropTypes.shape({strCategory: PropTypes.string})).isRequired
+    getCategoryCocktail: PropTypes.func.isRequired,
+    categories: PropTypes.arrayOf(PropTypes.shape({strCategory: PropTypes.string})).isRequired,
+    viewCocktailDetail: PropTypes.func.isRequired,
+    cocktailByCat: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 export default MainCat;

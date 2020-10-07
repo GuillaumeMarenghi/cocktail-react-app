@@ -16,6 +16,9 @@ export const GET_CATEGORIES_ERROR = 'GET_CATEGORIES_ERROR';
 export const GET_CATEGORY_COCKTAIL = 'GET_CATEGORY_COCKTAIL';
 export const GET_CATEGORY_COCKTAIL_SUCCES = 'GET_CATEGORY_COCKTAIL_SUCCES';
 export const GET_CATEGORY_COCKTAIL_ERROR = 'GET_CATEGORY_COCKTAIL_ERROR';
+export const GET_COCKTAIL_BY_ALCOHOL = 'GET_COCKTAIL_BY_ALCOHOL';
+export const GET_COCKTAIL_BY_ALCOHOL_SUCCESS = 'GET_COCKTAIL_BY_ALCOHOL_SUCCESS';
+export const GET_COCKTAIL_BY_ALCOHOL_ERROR = 'GET_COCKTAIL_BY_ALCOHOL_ERROR';
 
 export const searchInputChange = (payload) => ({
     type: SEARCH_INPUT_CHANGE,
@@ -98,5 +101,20 @@ export const getCategoryCocktailSuccess = (payload) => ({
 
 export const getCategoryCocktailError = (payload) => ({
     type: GET_CATEGORY_COCKTAIL_ERROR,
+    payload
+})
+
+export const getCocktailByAlcohol = (payload) => ({
+    type: GET_COCKTAIL_BY_ALCOHOL,
+    payload
+})
+
+export const getCocktailByAlcoholSuccess = (payload) => ({
+    type: GET_COCKTAIL_BY_ALCOHOL_SUCCESS,
+    payload
+})
+
+export const getCocktailByAlcoholError = (payload) => ({
+    type: GET_COCKTAIL_BY_ALCOHOL_ERROR,
     payload
 })
