@@ -3,7 +3,7 @@ import SearchBar from '../components/searchBar';
 import { searchInputChange, searchSend} from '../store/action';
 
 const mapStateToProps = (state) => ({
-    searchValue: state.inputEntry
+    searchValue: state.inputEntry,
 });
 
 const mapDispatchToProps = (dispatch) => ({

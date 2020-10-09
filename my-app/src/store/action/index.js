@@ -1,5 +1,7 @@
 export const SEARCH_INPUT_CHANGE = 'SEARCH_INPUT_CHANGE';
 export const SEARCH_SEND = 'SEARCH_SEND';
+export const SEARCH_SEND_SUCCESS = 'SEARCH_SEND_SUCCESS';
+export const SEARCH_SEND_ERROR = 'SEARCH_SEND_ERROR';
 export const GET_ALL_COCKTAIL = 'GET_ALL_COCKTAIL';
 export const GET_ALL_COCKTAIL_SUCCESS = 'GET_ALL_COCKTAIL_SUCCESS';
 export const GET_ALL_COCKTAIL_ERROR = 'GET_ALL_COCKTAIL_ERROR';
@@ -27,6 +29,16 @@ export const searchInputChange = (payload) => ({
 
 export const searchSend = () => ({
     type: SEARCH_SEND,
+});
+
+export const searchSendSucces = (payload) => ({
+    type: SEARCH_SEND_SUCCESS,
+    payload
+});
+
+export const searchSendError = (payload) => ({
+    type: SEARCH_SEND_ERROR,
+    payload
 });
 
 export const getAllCocktail = () => ({

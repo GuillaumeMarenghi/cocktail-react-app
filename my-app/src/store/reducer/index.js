@@ -1,6 +1,8 @@
 import {
     SEARCH_INPUT_CHANGE,
     SEARCH_SEND,
+    SEARCH_SEND_SUCCESS,
+    SEARCH_SEND_ERROR,
     GET_ALL_COCKTAIL,
     GET_ALL_COCKTAIL_SUCCESS,
     GET_ALL_COCKTAIL_ERROR,
@@ -36,7 +38,8 @@ const initialState = {
     cocktailCat: "",
     cocktailByCat: [],
     cocktailAlcohol: "",
-    cocktailByAlcohol: []
+    cocktailByAlcohol: [],
+    cocktailBySearch: [],
 }
 
 export default (state = initialState, action = {}) => {
@@ -44,8 +47,22 @@ export default (state = initialState, action = {}) => {
         case SEARCH_SEND:
             return {
                 ...state,
-                inputEntry:''
+                loading: true,
             };
+        case SEARCH_SEND_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                inputEntry: '',
+                cocktailBySearch: action.payload.drinks
+            };
+        case SEARCH_SEND_ERROR:
+            return {
+                ...state,
+                loading: false,
+                inputEntry: '',
+                error: action.payload
+            }
         case SEARCH_INPUT_CHANGE:
             return {
                 ...state,
@@ -61,16 +78,16 @@ export default (state = initialState, action = {}) => {
                 ...state,
                 loading: false,
                 randCocktail: [
+                    action.payload.drinks[8],
                     action.payload.drinks[21],
-                    action.payload.drinks[33],
-                    action.payload.drinks[40],
-                    action.payload.drinks[41],
-                    action.payload.drinks[48],
+                    action.payload.drinks[46],
                     action.payload.drinks[52],
+                    action.payload.drinks[60],
+                    action.payload.drinks[61],
                     action.payload.drinks[70],
                     action.payload.drinks[81],
-                    action.payload.drinks[92],
-                    action.payload.drinks[93]
+                    action.payload.drinks[93],
+                    action.payload.drinks[96]
                 ]
             };
         case GET_ALL_COCKTAIL_ERROR:

@@ -5,6 +5,7 @@ import {
     GET_CATEGORIES,
     GET_CATEGORY_COCKTAIL,
     GET_COCKTAIL_BY_ALCOHOL,
+    SEARCH_SEND,
     getAllCocktailSuccess,
     getAllCocktailError,
     viewCocktailDetailSuccess,
@@ -15,6 +16,9 @@ import {
     getCategoryCocktailError,
     getCocktailByAlcoholSuccess,
     getCocktailByAlcoholError,
+    searchSendSucces,
+    searchSendError,
+    SEARCH_SEND_SUCCESS
     } from '../action';
 
 const ajaxMiddleware = (store) => (next) => (action) => {
@@ -96,6 +100,20 @@ const ajaxMiddleware = (store) => (next) => (action) => {
                 }
             )
             break;
+        case SEARCH_SEND:
+            axios({
+                method: 'get',
+                url: `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${store.getState().inputEntry}`
+            }).then(
+                (res) => {
+                    store.dispatch(searchSendSucces(res.data))
+                }
+            ).catch(
+                (err) => {
+                    console.log(err);
+                    store.dispatch(searchSendError('impossible to retrieve the data'));
+                }
+            )
         default:
             return;
     }
