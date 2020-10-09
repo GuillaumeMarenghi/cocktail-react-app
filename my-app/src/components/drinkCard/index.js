@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import slugify from 'slugify';
-//import './style.scss';
+import './style.scss';
 import PropTypes from 'prop-types';
 import { Card , Button, Image} from 'semantic-ui-react';
 
@@ -9,16 +9,17 @@ const DrinkCard = ({cocktail, viewCocktailDetail}) => {
     let strUrl = `/recipe/${slugify(cocktail.strDrink)}`;
 
     return(
-    <div>
-    <Card className='cocktail-card' >
+    <div className='cocktail-card-container'>
+    <Link to={strUrl} >
+    <Card className='cocktail-card' onClick={() => {viewCocktailDetail(cocktail.idDrink)}}>
         <Image src={cocktail.strDrinkThumb} wrapped ui={false} />
-        <Card.Content>
+        <Card.Content className='cocktail-card-content'>
         <Card.Header>{cocktail.strDrink}</Card.Header>
         <Card.Meta>
             <span className='date'>{cocktail.strCategory}</span>
         </Card.Meta>
-        </Card.Content>
-        <Card.Content extra>
+        </Card.Content>       
+{/*         <Card.Content extra>
             <Link to={strUrl} >
             <Button 
             inverted color='purple'
@@ -28,8 +29,9 @@ const DrinkCard = ({cocktail, viewCocktailDetail}) => {
                 view recipe details 
             </Button>
             </Link>
-        </Card.Content>
+        </Card.Content> */}
     </Card>
+    </Link>
     </div>
 )}
 

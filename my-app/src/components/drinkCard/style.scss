@@ -1,0 +1,16 @@
+.cocktail-card{
+    background: none!important;
+    background-color: #ffffff90!important;
+    border: none !important;
+    &-container {
+        border: none!important;
+        max-width: 80%;
+        margin: 1em;
+    }
+    &:hover{
+        transform: translate(0, -5px);
+        background-position: right center!important; 
+        cursor: pointer;
+    }   
+}
+
