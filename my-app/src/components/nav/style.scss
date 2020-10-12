@@ -1,9 +1,8 @@
 .segment-menu {
     display: flex;
-    &-input{
-        margin-left: 3em;
-    }
 }
 .nav-container{
     margin: 0;
+    padding: none;
+    width: 100%;
 }

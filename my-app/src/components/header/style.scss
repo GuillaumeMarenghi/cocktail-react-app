@@ -1,11 +1,26 @@
 .main-header {
     width: 100%;
-    /* background-image: url('./pexels-anna-tukhfatullina-food-photographerstylist-2611814.jpg'); */
     background-size: cover;
     display: flex;
     justify-content: flex-start;
-    margin: 0.5em;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    background-color: #FFF;
     &-input {
         margin-left: 2.5em;
     }
+    &-group-1 {
+        display: flex;
+        padding: 0.5em 0;
+    }
 }
+ @media (max-width: 768px) {
+     .main-header {
+         justify-content: center;
+         &-group-1 {
+             display: block;
+         }
+     }
+ }

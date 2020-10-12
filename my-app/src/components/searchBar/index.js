@@ -28,7 +28,6 @@ const SearchBar = ({searchValue, onFormSubmit, onInputChange}) => {
        action={{ icon: 'search' }}
        className="search-bar-input"
        type="text"
-       className="search-bar-input"
        placeholder="Find a cocktail"
        onChange={(e) => {
            onInputChange(e.target.value)

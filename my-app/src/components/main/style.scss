@@ -2,17 +2,53 @@
     background-color: #f7d4f7;
     min-height: 100%;
     background-image: url('./pexels-asad-photo-maldives-1450360.jpg');
+    background-attachment: fixed;
     background-size: cover;
+    margin: 0;
+    
     &-container {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: center;
+        width: 40%;
+        margin: auto;
     }
     &-drinkCard {
-      margin: 1em;
+        margin: 0 1em;
     }
     & h2 {
+        padding-top: 135px;
         margin-top: 1em;
-        margin-bottom: 2em;
+        margin-bottom: 1em;
+    }
+}
+
+@media (max-width: 680px) {
+    .main-component-container {
+        width: 80%
+    }
+
+}
+@media (max-width: 1600px) {
+    .main-component-container {
+        width: 60%
+    }
+}
+
+@media (max-width: 768px) {
+    .main-component h2 {
+        padding-top: 180px;
+    }
+}
+
+@media (max-height: 715px) {
+    .main-component h2 {
+        margin: 0;
+    }
+}
+
+@media (max-height: 590px) {
+    .main-component h2 {
+        padding-top: 190px;
     }
 }

@@ -21,7 +21,7 @@ function App({ getCocktail }) {
   return (
     <div className="App">
       <Header />
-      <Nav />
+      {/* <Nav /> */}
       <Switch>
         <Route exact path="/" component={Main} />
         <Route exact path="/categories" component={MainCat} />

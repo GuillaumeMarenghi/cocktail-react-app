@@ -19,17 +19,6 @@ const DrinkCard = ({cocktail, viewCocktailDetail}) => {
             <span className='date'>{cocktail.strCategory}</span>
         </Card.Meta>
         </Card.Content>       
-{/*         <Card.Content extra>
-            <Link to={strUrl} >
-            <Button 
-            inverted color='purple'
-            onClick={() => {
-                viewCocktailDetail(cocktail.idDrink)}}
-            >
-                view recipe details 
-            </Button>
-            </Link>
-        </Card.Content> */}
     </Card>
     </Link>
     </div>

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, Segment } from 'semantic-ui-react';
-import SearchBar from '../../containers/searchBar';
 import PropTypes from 'prop-types';
 import './style.scss';
+import { GiGlassCelebration } from 'react-icons/gi';
 
 
 const Nav = ({activeItem, changeToHome, changeToCat, changeToAlcohol}) => {
@@ -35,7 +35,6 @@ const Nav = ({activeItem, changeToHome, changeToCat, changeToAlcohol}) => {
           />
           </Link>
         </Menu>
-        <div className='segment-menu-input'><SearchBar /></div>
         </div>
       </Segment>
       </div>
