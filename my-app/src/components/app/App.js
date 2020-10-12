@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import './App.css';
+import '../../styles/style.scss';
 import 'semantic-ui-css/semantic.min.css';
 import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router-dom';
@@ -7,7 +7,6 @@ import { Route, Switch } from 'react-router-dom';
 import Header from "../header";
 import Main from "../../containers/main";
 import MainCat from "../../containers/mainCat"
-import Nav from '../../containers/nav';
 import Recipe from '../../containers/recipe';
 import ByAlcohol from '../../containers/byAlcohol';
 import SearchResult from '../../containers/searchResult';

@@ -1,0 +1,15 @@
+.App {
+    text-align: center;
+    height: 100vh;
+    max-height: 100vh;
+}
+
+.main-component, .main-cat-container {
+    padding-top: 135px;
+}
+
+@media (max-width: 768px) {
+    .main-component, .main-cat-container {
+        padding-top: 180px;
+    }
+}

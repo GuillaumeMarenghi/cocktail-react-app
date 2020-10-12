@@ -1,7 +1,20 @@
 .cocktail-card{
     background: none!important;
-    background-color: #ffffff90!important;
+    background-color: #04049d90!important;
     border: none !important;
+    border: 2px solid #2acdc1!important;
+    border-radius: 10% 0;
+    color: #2acdc1!important;
+    font-weight: bold;
+    font-size: 1.4em;
+    box-sizing: border-box;
+    padding: 1em;
+    &-img {
+        border-radius: 10%;
+    }
+    &-content {
+        padding-top: 1em;
+    }
     &-container {
         border: none!important;
         max-width: 100%;
@@ -11,6 +24,12 @@
         transform: translate(0, -5px);
         background-position: right center!important; 
         cursor: pointer;
+        background-color: #04049d50!important;
+        color: #2acdc1;
     }   
 }
 
+img.ui.medium.image {
+    box-sizing: border-box;
+    border-radius: 10% 0;
+} 

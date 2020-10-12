@@ -11,7 +11,13 @@ const DrinkCard = ({cocktail, viewCocktailDetail}) => {
     return(
     <div className='cocktail-card-container'>
     <Link to={strUrl} >
-    <Card className='cocktail-card' onClick={() => {viewCocktailDetail(cocktail.idDrink)}}>
+        <div className="cocktail-card" onClick={() => {viewCocktailDetail(cocktail.idDrink)}}>
+            <div className="cocktail-card-img"><Image src={cocktail.strDrinkThumb} size='medium'/></div>
+            <div className="cocktail-card-content">
+                <span>{cocktail.strDrink}</span>
+            </div>
+        </div>
+{/*     <Card className='cocktail-card' 
         <Image src={cocktail.strDrinkThumb} wrapped ui={false} />
         <Card.Content className='cocktail-card-content'>
         <Card.Header>{cocktail.strDrink}</Card.Header>
@@ -19,7 +25,7 @@ const DrinkCard = ({cocktail, viewCocktailDetail}) => {
             <span className='date'>{cocktail.strCategory}</span>
         </Card.Meta>
         </Card.Content>       
-    </Card>
+    </Card> */}
     </Link>
     </div>
 )}
