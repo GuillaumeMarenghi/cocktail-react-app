@@ -16,6 +16,8 @@ const MainCat = ({ getCategories, getCategoryCocktail, viewCocktailDetail, categ
             };
     })
 
+    const initCurrentPages = () => setCurrentPage(1);
+
     const [nbPages, setNbPages] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
 
@@ -25,7 +27,7 @@ const MainCat = ({ getCategories, getCategoryCocktail, viewCocktailDetail, categ
     <div className="main-cat-container">
     <div className="main-cat-btn">
         {categories.map(elm => (
-            <CategoryButton key={elm.strCategory} category={elm.strCategory} getCategoryCocktail={getCategoryCocktail}/>
+            <CategoryButton key={elm.strCategory} category={elm.strCategory} getCategoryCocktail={getCategoryCocktail} initCurrentPages={initCurrentPages}/>
         ))}
     </div>  
     <div className="main-cat-card-container">
@@ -35,14 +37,14 @@ const MainCat = ({ getCategories, getCategoryCocktail, viewCocktailDetail, categ
     </div>
         <div className='pagination'>
             { currentPage !== 1 && <button onClick={() =>  setCurrentPage(currentPage - 1)}>précedent </button>}
-            {"  "}
-            {currentPage !== nbPages && <button onClick={() =>  setCurrentPage(currentPage + 1)}>suivant {currentPage } </button>}
+            {"  "}<span> Page {currentPage} of {nbPages}</span>
+            {currentPage !== nbPages && <button onClick={() =>  setCurrentPage(currentPage + 1)}>suivant</button>}
         </div>
     </div>
 
 )}
 
-export const CategoryButton = ({ category, getCategoryCocktail}) => {
+export const CategoryButton = ({ category, getCategoryCocktail, initCurrentPages}) => {
 
     const urlCategory = category.replace(/ /g,"_");
 
@@ -57,7 +59,9 @@ export const CategoryButton = ({ category, getCategoryCocktail}) => {
 
         <div className="content-section-grid clearfix">
         
-        <div onClick={() => { getCategoryCocktail(urlCategory) }} className="button nav-link">
+        <div onClick={() => { 
+            getCategoryCocktail(urlCategory);
+            initCurrentPages(); }} className="button nav-link">
 
           <div className="bottom"></div>
 
