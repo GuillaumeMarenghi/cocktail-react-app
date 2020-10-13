@@ -30,3 +30,53 @@
         }
     }
 }
+
+@media (max-width: 1460px){
+    .recipe {
+        width: 40%;
+        &-list-container {
+            position:relative;
+            left: 80px
+        }
+    }
+}
+
+@media (max-width: 1100px){
+    .recipe {
+        width: 50%;
+        &-list-container {
+            position:relative;
+            left: 80px
+        }
+    }
+}
+
+@media (max-width: 850px){
+    .recipe {
+        width: 70%;
+        &-list-container {
+            margin-left: 0;
+            padding: 2em;
+            position:relative;
+            left: 60px
+        }
+    }
+}
+
+@media (max-width: 600px){
+    .recipe {
+        background: none;
+        width: 90%;
+        &-cotainer {
+            padding-top: 200px;
+        }
+        &-center {
+            display: flex;
+            flex-direction: column;
+        }
+        &-list-container {
+            padding: 1em;
+            margin-left: 0;
+        }
+    }
+}
