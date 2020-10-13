@@ -18,7 +18,6 @@ import {
     getCocktailByAlcoholError,
     searchSendSucces,
     searchSendError,
-    SEARCH_SEND_SUCCESS
     } from '../action';
 
 const ajaxMiddleware = (store) => (next) => (action) => {
@@ -114,6 +113,7 @@ const ajaxMiddleware = (store) => (next) => (action) => {
                     store.dispatch(searchSendError('impossible to retrieve the data'));
                 }
             )
+            break;
         default:
             return;
     }

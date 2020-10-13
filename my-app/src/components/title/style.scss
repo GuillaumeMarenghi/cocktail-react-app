@@ -1,0 +1,108 @@
+.title {
+    display: inline-block;
+    text-decoration: none;
+    position: relative;
+    margin-top: 30px;
+}
+
+.title .bottom {
+    position: absolute;
+    left: 7px;
+    top: 7px;
+    width: 100%;
+    height: 100%;
+    background-color: #2acdc1;
+    display: block;
+    -webkit-transition: all .15s ease-out;
+    -moz-transition: all .15s ease-out;
+    -o-transition: all .15s ease-out;
+    transition: all .15s ease-out;
+}
+
+.title .top {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: 24px 34px 22px 34px;
+    border: 2px solid #04049d;
+}
+
+.title-dark .top {
+    border: 2px solid #fff;
+}
+
+.title .top .label {
+    font-family: sans-serif;
+    font-weight: 600;
+    color: #04049d;
+    font-size: 12px;
+    line-height: 110%;
+    letter-spacing: 2px;
+    text-align: center;
+    text-transform: uppercase;
+    -webkit-transition: all .15s ease-out;
+    -moz-transition: all .15s ease-out;
+    -o-transition: all .15s ease-out;
+    transition: all .15s ease-out;
+}
+
+.title-dark .top .label {
+    color: #fff;
+}
+
+/* .title:hover .bottom {
+    left: 0;
+    top: 0;
+    background-color: #f3f3f3;
+} */
+
+/* .title:hover .top .label {
+    color: #2acdc1;
+} */
+
+.title-border {
+    position: absolute;
+    background-color: #2acdc1;
+    -webkit-transition: all .25s ease-out;
+    -moz-transition: all .25s ease-out;
+    -o-transition: all .25s ease-out;
+    transition: all .25s ease-out;
+}
+
+/* .title:hover .top .title-border-left,.title:hover .top .title-border-right {
+    height: calc(100% + 2px);
+} */
+
+/* .title:hover .top .title-border-top,.title:hover .top .title-border-bottom {
+    width: calc(100% + 2px);
+} */
+
+.title-border-left {
+    left: -2px;
+    bottom: -2px;
+    width: 2px;
+    height: 0;
+}
+
+.title-border-top {
+    left: -2px;
+    top: -2px;
+    width: 0;
+    height: 2px;
+}
+
+.title-border-right {
+    right: -2px;
+    top: -2px;
+    width: 2px;
+    height: 0;
+}
+
+.title-border-bottom {
+    right: -2px;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+}

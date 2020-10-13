@@ -15,7 +15,7 @@ const Nav = ({activeItem, changeToHome, changeToCat, changeToAlcohol}) => {
         <Menu inverted pointing secondary>
           <Link to='/'>
           <Menu.Item
-            name='home'
+            name='most popular'
             active={activeItem === 'home'}
             onClick={changeToHome}
           />

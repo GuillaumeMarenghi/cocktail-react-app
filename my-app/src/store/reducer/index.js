@@ -48,6 +48,7 @@ export default (state = initialState, action = {}) => {
             return {
                 ...state,
                 loading: true,
+                activeItem: ''
             };
         case SEARCH_SEND_SUCCESS:
             return {

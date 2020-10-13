@@ -1,0 +1,15 @@
+.searchResult-component {
+    &-container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: center;
+    }
+    &-drinkCard {
+        margin: 0.5em;
+    }
+    &-title {
+        padding-top: 0.5em;
+        margin-bottom: 1em;
+    }
+}

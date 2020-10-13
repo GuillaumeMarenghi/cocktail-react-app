@@ -1,13 +1,18 @@
 .recipe {
-    max-width: 30vw;
+    width: 30%;
     text-align: left;
-    margin-top: 1.5em;
+    margin: auto ;
+    margin-top: 2.5em;
     padding: 1em;
-    border: solid 3px #a333c8;
     color: #fff;
     text-shadow: 1px 1px 2px #000;
-    border-radius: 1em;
-    background-color: #0170fe95;
+    background-color: #04049d;
+    &-instruction {
+        background-color: #a333c8;
+        padding: 1em;
+        position: relative;
+        left: -35px
+    }
     &-center {
         display: flex;
         justify-content: flex-start;
@@ -15,7 +20,12 @@
         margin-bottom: 1em;
         &-list {
             &-container {
-                margin-left: 1.5em;
+                margin-left: 2.5em;
+                background-color: #2acdc1;
+                padding: 3.5em;
+                position: relative;
+                top: 10px; 
+                left: 50px;
             }
         }
     }

@@ -1,9 +1,9 @@
 .main-component {
-    background-color: #f7d4f7;
+/*     background-color: #f7d4f7;
     min-height: 100%;
     background-image: url('./pexels-asad-photo-maldives-1450360.jpg');
     background-attachment: fixed;
-    background-size: cover;
+    background-size: cover; */
     
     &-container {
         display: flex;
@@ -17,8 +17,16 @@
     }
     & h2 {
         //padding-top: 135px;
+        display: inline-block;
         padding-top: 0.5em;
+        margin-top: 0.5em;
         margin-bottom: 1em;
+        background-color: #2acdc1;
+        color: #04049d;
+        padding: 0.5em;
+        outline: 3px solid #04049d;
+        outline-offset: .6rem;
+        
     }
 }
 

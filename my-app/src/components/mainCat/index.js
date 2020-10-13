@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './style.scss';
 import PropTypes from 'prop-types';
-import DrinkCard from "../drinkCard"
+import DrinkCard from "../drinkCard";
 
 const MainCat = ({ getCategories, getCategoryCocktail, viewCocktailDetail, categories, cocktailByCat }) => {
-    console.log('cocktailByCat:', cocktailByCat.lenght)
     
     useEffect(() => { 
         getCategories();
@@ -35,11 +34,13 @@ const MainCat = ({ getCategories, getCategoryCocktail, viewCocktailDetail, categ
             <div key={elm.idDrink} className="main-cat-card"><DrinkCard cocktail={elm} viewCocktailDetail={viewCocktailDetail}/></div>
         ))}
     </div>
+    { nbPages !== 0 &&
         <div className='pagination'>
-            { currentPage !== 1 && <button onClick={() =>  setCurrentPage(currentPage - 1)}>précedent </button>}
-            {"  "}<span> Page {currentPage} of {nbPages}</span>
-            {currentPage !== nbPages && <button onClick={() =>  setCurrentPage(currentPage + 1)}>suivant</button>}
+            { currentPage !== 1 && <button className="pagination-btn"  onClick={() =>  setCurrentPage(currentPage - 1)}>Previous</button>}
+            {"  "}<span className='pagination-count'> Page {currentPage} of {nbPages}</span>
+    {currentPage !== nbPages && <button className="pagination-btn" onClick={() =>  setCurrentPage(currentPage + 1)}>Next</button>}
         </div>
+    }
     </div>
 
 )}
@@ -49,9 +50,9 @@ export const CategoryButton = ({ category, getCategoryCocktail, initCurrentPages
     const urlCategory = category.replace(/ /g,"_");
 
     return (
-        <section id="intro">
+    <section id="intro">
 
-  <div id="intro-content" className="center-content">
+    <div id="intro-content" className="center-content">
 
     <div className="center-content-inner">
 
@@ -86,13 +87,7 @@ export const CategoryButton = ({ category, getCategoryCocktail, initCurrentPages
 
      </div>
 
-  </section>
-/*     <button 
-    className="category-btn"
-    onClick={() => { getCategoryCocktail(urlCategory) }}
-    >
-    {category}
-    </button> */
+    </section>
 )}
 
 MainCat.propTypes = {

@@ -1,7 +1,8 @@
 import React from 'react';
 import './style.scss';
 import PropTypes from 'prop-types';
-import { Image, List } from 'semantic-ui-react'
+import Title from '../title';
+import { Image, List } from 'semantic-ui-react';
 
 
 const Recipe = ({cocktail}) => { 
@@ -21,8 +22,10 @@ const Recipe = ({cocktail}) => {
     const ingredients = ingredientsSanitize.filter( elm => elm !== null);
     
     return (
+    <div className="recipe-container">
+        <Title content={`Recipe of ${cocktail.strDrink}`} />
     <div className="recipe">
-        <h2>{cocktail.strDrink}</h2>
+        {/* <h2>{cocktail.strDrink}</h2> */}
         <div className="recipe-center">
         <Image src={cocktail.strDrinkThumb} size='medium' circular />
         <div className="recipe-center-list-container">
@@ -32,9 +35,10 @@ const Recipe = ({cocktail}) => {
         </div>
         </div>
         <div className='recipe-instruction'>
-            <h3>Instruction</h3>
-            <div>{cocktail.strInstructions}</div>
+            <h3>Instructions</h3>
+        {cocktail.strInstructions ? <div>{cocktail.strInstructions}</div> : <div>mix the ingredients</div>}    
         </div>
+    </div>
     </div>
 )}
 

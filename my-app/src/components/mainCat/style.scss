@@ -4,13 +4,7 @@
         justify-content: center;
         flex-wrap: wrap;
     }
-    &-container {
-        background-image: url('../main/pexels-asad-photo-maldives-1450360.jpg');
-        
-        background-size: cover;
-        background-attachment: fixed;
-        min-height: 100%;
-    }
+
     &-card {
         margin: 1em;
         &-container {
@@ -23,6 +17,53 @@
     }
 }
 
+.pagination {
+    margin: 1em;
+    &-btn {
+        background-color: #04049d;
+        color: #2acdc1;
+        padding: 0.5em 1.5em;
+        border: 3px solid #2acdc1;
+        font-weight: bold;
+        font-style: italic;
+    }
+    &-btn:hover {
+        background-color: #04049d80;
+        transform: translate(10px, 0px);
+        background-position: right !important; 
+    }
+    &-count {
+        color: #04049d;
+        margin: 2em;
+        padding: 0.8em;
+        background-color:#2acdc1;
+        font-weight: bold;
+    }
+}
+
+@media( max-width: 800px ) {
+    .pagination {
+        &-count {
+            margin: 0.8em;
+        }
+        &-btn:hover {
+            background-color: #04049d;
+            transform: translate(0px, 0px);
+        }
+    }
+}
+
+@media( max-width: 700px ) {
+    .pagination {
+        &-count {
+            margin: 0.1em;
+        }
+        &-btn:hover {
+            background-color: #04049d;
+            transform: translate(0px, 0px);
+        }
+    }
+}
 
 *,*:before,*:after {
     -webkit-box-sizing: inherit;

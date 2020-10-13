@@ -1,6 +1,6 @@
 .cocktail-card{
     background: none!important;
-    background-color: #04049d90!important;
+    background-color: #04049d!important;
     border: none !important;
     border: 2px solid #2acdc1!important;
     border-radius: 10% 0;
@@ -8,7 +8,7 @@
     font-weight: bold;
     font-size: 1.4em;
     box-sizing: border-box;
-    padding: 1em;
+    padding: 0.5em 0.5em 1em 1em;
     &-img {
         border-radius: 10%;
     }
@@ -21,10 +21,10 @@
         margin-top: 1em;
     }
     &:hover{
-        transform: translate(0, -5px);
+        transform: translate(0, -15px);
         background-position: right center!important; 
         cursor: pointer;
-        background-color: #04049d50!important;
+        background-color: #04049d95!important;
         color: #2acdc1;
     }   
 }
