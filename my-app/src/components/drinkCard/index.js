@@ -14,7 +14,7 @@ const DrinkCard = ({cocktail, viewCocktailDetail}) => {
         <div className="cocktail-card" onClick={() => {viewCocktailDetail(cocktail.idDrink)}}>
             <div className="cocktail-card-img"><Image src={cocktail.strDrinkThumb} size='medium'/></div>
             <div className="cocktail-card-content">
-                <span>{cocktail.strDrink}</span>
+                <span className="cocktail-card-content-span">{cocktail.strDrink}</span>
             </div>
         </div>
     </Link>

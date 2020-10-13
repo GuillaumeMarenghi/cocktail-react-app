@@ -2,12 +2,28 @@ import React, { useEffect, useState } from 'react';
 import './style.scss';
 import PropTypes from 'prop-types';
 import DrinkCard from "../drinkCard";
+import Title from '../title';
+import { Link, useLocation } from 'react-router-dom';
+
 
 const MainCat = ({ getCategories, getCategoryCocktail, viewCocktailDetail, categories, cocktailByCat }) => {
     
+    let location = useLocation();
+    console.log('location:', location)
+
     useEffect(() => { 
         getCategories();
     }, []);
+
+    useEffect( () => {
+        if (location.pathname === '/categories') {
+        setResult(false);
+        } else {
+            setResult(true);
+            setCurrentCat(location.pathname.slice(12))
+        }
+        
+    }, [location]);
 
     useEffect(() => {
         if (cocktailByCat) {
@@ -15,25 +31,43 @@ const MainCat = ({ getCategories, getCategoryCocktail, viewCocktailDetail, categ
             };
     })
 
-    const initCurrentPages = () => setCurrentPage(1);
-
     const [nbPages, setNbPages] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
+    const [result, setResult] = useState(false);
+    const [currentCat, setCurrentCat] = useState('');
 
-    let currentCocktailByCat = cocktailByCat.slice((currentPage - 1)*12, currentPage*12)
+    let currentCocktailByCat = cocktailByCat.slice((currentPage - 1)*12, currentPage*12);
+
+    const initCurrentPages = () => setCurrentPage(1);
+
+    const clearBtn = (value) => {
+        setResult(true);
+        setCurrentCat(value)
+    }
       
     return (
     <div className="main-cat-container">
+    {!result 
+    ?
     <div className="main-cat-btn">
         {categories.map(elm => (
-            <CategoryButton key={elm.strCategory} category={elm.strCategory} getCategoryCocktail={getCategoryCocktail} initCurrentPages={initCurrentPages}/>
+            <CategoryButton 
+            key={elm.strCategory} 
+            category={elm.strCategory} 
+            getCategoryCocktail={getCategoryCocktail} 
+            initCurrentPages={initCurrentPages} 
+            clearBtn={clearBtn}/>
         ))}
-    </div>  
+    </div>
+    :
+    <div>    
+        <Title content={currentCat} />
     <div className="main-cat-card-container">
         {currentCocktailByCat.map(elm => (
             <div key={elm.idDrink} className="main-cat-card"><DrinkCard cocktail={elm} viewCocktailDetail={viewCocktailDetail}/></div>
         ))}
     </div>
+    
     { nbPages !== 0 &&
         <div className='pagination'>
             { currentPage !== 1 && <button className="pagination-btn"  onClick={() =>  setCurrentPage(currentPage - 1)}>Previous</button>}
@@ -42,14 +76,18 @@ const MainCat = ({ getCategories, getCategoryCocktail, viewCocktailDetail, categ
         </div>
     }
     </div>
+    } 
+    </div>
 
-)}
+)
+}
 
-export const CategoryButton = ({ category, getCategoryCocktail, initCurrentPages}) => {
+export const CategoryButton = ({ category, getCategoryCocktail, initCurrentPages, clearBtn}) => {
 
     const urlCategory = category.replace(/ /g,"_");
 
     return (
+    <Link to={`/categories/${urlCategory}`} >
     <section id="intro">
 
     <div id="intro-content" className="center-content">
@@ -62,7 +100,9 @@ export const CategoryButton = ({ category, getCategoryCocktail, initCurrentPages
         
         <div onClick={() => { 
             getCategoryCocktail(urlCategory);
-            initCurrentPages(); }} className="button nav-link">
+            initCurrentPages();
+            clearBtn(category) }} 
+            className="button nav-link">
 
           <div className="bottom"></div>
 
@@ -88,6 +128,7 @@ export const CategoryButton = ({ category, getCategoryCocktail, initCurrentPages
      </div>
 
     </section>
+    </Link>
 )}
 
 MainCat.propTypes = {

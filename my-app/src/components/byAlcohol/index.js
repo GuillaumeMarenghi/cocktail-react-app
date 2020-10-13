@@ -5,7 +5,7 @@ import DrinkCard from "../drinkCard"
 
 const ByAlcohol = ({ getCocktailByAlcohol, viewCocktailDetail, cocktailByAlcohol}) => {
     
-    const alcohols = ["Vodka", "Gin","Rum","absinthe", "Whiskey","Bourbon","Wine","Beer","Cognac", "Cachaca", "tequila"]
+    const alcohols = ["Vodka", "Gin","Rum","absinthe", "Whiskey","Bourbon","Wine"/* ,"Beer" */,"Cognac", "Cachaca", "tequila"]
     
     useEffect(() => {
         if (cocktailByAlcohol) {

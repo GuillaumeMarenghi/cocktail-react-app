@@ -3,7 +3,6 @@
     background-color: #04049d!important;
     border: none !important;
     border: 2px solid #2acdc1!important;
-    border-radius: 10% 0;
     color: #2acdc1!important;
     font-weight: bold;
     font-size: 1.4em;
@@ -13,7 +12,15 @@
         border-radius: 10%;
     }
     &-content {
-        padding-top: 1em;
+        text-align: left;
+        &-span {
+            position: relative;
+            bottom: 15px;
+            left: 0px;
+            background-color: #2acdc1;
+            color: #a333c8;
+            padding: 0.5em;
+        }
     }
     &-container {
         border: none!important;
@@ -31,5 +38,4 @@
 
 img.ui.medium.image {
     box-sizing: border-box;
-    border-radius: 10% 0;
 } 

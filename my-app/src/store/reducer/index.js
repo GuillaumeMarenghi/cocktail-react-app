@@ -146,7 +146,7 @@ export default (state = initialState, action = {}) => {
                         action.payload.drinks[0],
                         action.payload.drinks[1],
                         action.payload.drinks[5],
-                        action.payload.drinks[9]
+                        //action.payload.drinks[9]
                     ]
                 }
             case GET_CATEGORIES_ERROR:
