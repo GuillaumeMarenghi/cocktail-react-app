@@ -26,7 +26,7 @@ import {
 
 const initialState = {
     visible: false,
-    activeItem: 'home',
+    activeItem: null,
     inputEntry: "",
     loading: false,
     cocktailDetail: false,
@@ -48,7 +48,7 @@ export default (state = initialState, action = {}) => {
             return {
                 ...state,
                 loading: true,
-                activeItem: ''
+                activeItem: 'null'
             };
         case SEARCH_SEND_SUCCESS:
             return {
@@ -121,7 +121,7 @@ export default (state = initialState, action = {}) => {
             case CHANGE_TO_HOME:
                 return {
                     ...state,
-                    activeItem: 'home'
+                    activeItem: ''
                 }
             case CHANGE_TO_CAT:
                 return {

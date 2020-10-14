@@ -24,7 +24,7 @@ function App({ getCocktail }) {
       <Switch>
         <Route exact path="/" component={Main} />
         <Route path="/categories" component={MainCat} />
-        <Route exact path="/alcohol" component={ByAlcohol}/>
+        <Route path="/alcohol" component={ByAlcohol}/>
         <Route exact path="/recipe/:slug" component={Recipe} />
         <Route exact path="/searchResult" component={SearchResult} />
       </Switch>

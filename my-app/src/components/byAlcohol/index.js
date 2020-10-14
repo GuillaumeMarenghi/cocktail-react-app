@@ -1,103 +1,90 @@
 import React, {useEffect, useState} from 'react';
 import './style.scss';
 import PropTypes from 'prop-types';
-import DrinkCard from "../drinkCard"
+import DrinkCard from '../drinkCard';
+import CustomBtn from '../customBtn';
+import Title from '../title';
+import Pagination from '../pagination';
+import { useLocation } from 'react-router-dom';
 
-const ByAlcohol = ({ getCocktailByAlcohol, viewCocktailDetail, cocktailByAlcohol}) => {
+import { Loader } from 'semantic-ui-react';
+
+const ByAlcohol = ({ getCocktailByAlcohol, viewCocktailDetail, cocktailByAlcohol, loading}) => {
     
     const alcohols = ["Vodka", "Gin","Rum","absinthe", "Whiskey","Bourbon","Wine"/* ,"Beer" */,"Cognac", "Cachaca", "tequila"]
     
+    let location = useLocation();
+
     useEffect(() => {
         if (cocktailByAlcohol) {
             setNbPages(Math.round(cocktailByAlcohol.length/12))
             };
     })
 
+    useEffect( () => {
+        if (location.pathname === '/alcohol') {
+        setResult(false);
+        } else {
+            setResult(true);
+            setCurrentCat(location.pathname.slice(9))
+        }        
+    }, [location]);
+
+    const clearBtn = (value) => {
+        setResult(true);
+        setCurrentCat(value)
+    }
+
     const initCurrentPages = () => setCurrentPage(1);
 
     const [nbPages, setNbPages] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
+    const [result, setResult] = useState(false);
+    const [currentCat, setCurrentCat] = useState('');
 
     let currentCocktailByAlcohol = cocktailByAlcohol.slice((currentPage - 1)*12, currentPage*12)
 
     return (
     <div className="main-cat-container">
+    {!result 
+    ?
     <div className="main-cat-btn">
         {alcohols.map(elm => (
-            <AlcoholButton key={elm} alcohol={elm} getCocktailByAlcohol={getCocktailByAlcohol} initCurrentPages={initCurrentPages}/>
+            <CustomBtn 
+            key={elm} 
+            content={elm} 
+            url="alcohol"
+            action={getCocktailByAlcohol} 
+            initCurrentPages={initCurrentPages}
+            clearBtn={clearBtn}
+            />
         ))}
     </div>  
+    :
+    <div>
+    <Title content={currentCat} />
+    {loading ? <div><Loader active></Loader></div> : <div> 
     <div className="main-cat-card-container">
-        {cocktailByAlcohol && currentCocktailByAlcohol.map(elm => (
+        {currentCocktailByAlcohol.map(elm => (
             <div key={elm.idDrink} className="main-cat-card"><DrinkCard cocktail={elm} viewCocktailDetail={viewCocktailDetail}/></div>
         ))}
     </div>
     { nbPages !== 0 &&
-        <div className='pagination'>
-            { currentPage !== 1 && <button className="pagination-btn"  onClick={() =>  setCurrentPage(currentPage - 1)}>Previous</button>}
-            {"  "}<span className='pagination-count'> Page {currentPage} of {nbPages}</span>
-    {currentPage !== nbPages && <button className="pagination-btn" onClick={() =>  setCurrentPage(currentPage + 1)}>Next</button>}
-        </div>
+    <Pagination nbPages={nbPages} currentPage={currentPage} changePage={(value) => {setCurrentPage(currentPage + value)}}/>
+    }
+    </div>}
+    </div>
     }
     </div>
 
-)}
-
-export const AlcoholButton = ({ alcohol, getCocktailByAlcohol, initCurrentPages}) => {
-
-    //const urlCategory = category.replace(/ /g,"_");
-
-    return (
-    <section id="intro">
-
-    <div id="intro-content" className="center-content">
-
-    <div className="center-content-inner">
-
-      <div className="content-section content-section-margin">
-
-        <div className="content-section-grid clearfix">
-        
-        <div onClick={() => { 
-            getCocktailByAlcohol(alcohol);
-            initCurrentPages(); }} className="button nav-link">
-
-          <div className="bottom"></div>
-
-          <div className="top">
-
-          <div className="label">{alcohol}</div>
-            
-        		<div className="button-border button-border-left"></div>
-        	  <div className="button-border button-border-top"></div>
-        	  <div className="button-border button-border-right"></div>
-        		<div className="button-border button-border-bottom"></div>
-
-          </div>
-
-        	</div>
-
-        </div>
-
-       </div>
-
-      </div>
-
-     </div>
-
-    </section>
-/*     <button 
-    className="alcohol-btn"
-    onClick={() => { getCocktailByAlcohol(alcohol) }}
-    >
-    {alcohol}
-    </button> */
-)}
+)
+}
 
 ByAlcohol.propTypes = {
     getCocktailByAlcohol: PropTypes.func.isRequired,
     viewCocktailDetail: PropTypes.func.isRequired,
-    cocktailByAlcohol: PropTypes.arrayOf(PropTypes.object).isRequired
+    cocktailByAlcohol: PropTypes.arrayOf(PropTypes.object).isRequired,
+    loaing: PropTypes.bool
 };
 
 export default ByAlcohol;

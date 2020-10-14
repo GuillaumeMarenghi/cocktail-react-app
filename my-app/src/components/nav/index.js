@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import { Menu, Segment } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import './style.scss';
-import { GiGlassCelebration } from 'react-icons/gi';
-
 
 const Nav = ({activeItem, changeToHome, changeToCat, changeToAlcohol}) => {
 
@@ -16,7 +14,7 @@ const Nav = ({activeItem, changeToHome, changeToCat, changeToAlcohol}) => {
           <Link to='/'>
           <Menu.Item
             name='most popular'
-            active={activeItem === 'home'}
+            active={activeItem === ''}
             onClick={changeToHome}
           />
           </Link>

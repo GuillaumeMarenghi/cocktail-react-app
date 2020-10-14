@@ -26,6 +26,7 @@
         border: none!important;
         max-width: 100%;
         margin-top: 1em;
+        animation:fadeIn 1.2s cubic-bezier(0.02, 0.79, 0.34, 0.98)  !important;
     }
     &:hover{
         transform: translate(0, -15px);
