@@ -1,3 +1,5 @@
+@import '../../styles/vars';
+
 .recipe {
     width: 30%;
     text-align: left;
@@ -6,17 +8,18 @@
     padding: 1em;
     color: #fff;
     text-shadow: 1px 1px 2px #000;
-    background-color: #fba965;
-    border-radius: 0.5em;
+    background-color: $color-beige-orange;
+    border: solid $color-beige 4px;
     border-radius: 1em;
     -webkit-box-shadow: -11px 10px 29px 2px rgba(2,31,81,0.75);
     -moz-box-shadow: -11px 10px 29px 2px rgba(2,31,81,0.75);
     box-shadow: -11px 10px 29px 2px rgba(2,31,81,0.75);
     &-instruction {
-        background-color: #6aa79d;
+        background-color: $color-blue-dark;
         padding: 1em;
         position: relative;
         left: -35px;
+        border: solid$color-blue-1 4px;
         border-radius: 1em;
     }
     &-center {
@@ -27,7 +30,8 @@
         &-list {
             &-container {
                 margin-left: 2.5em;
-                background-color: #028a9a;
+                background-color: $color-blue-2;
+                border: solid $color-blue-3 4px;
                 padding: 3.5em;
                 position: relative;
                 top: 10px; 
@@ -76,7 +80,6 @@
 @media (max-width: 600px){
     .recipe {
         border-radius: none;
-        background-color: #fba965;
         width: 90%;
         &-container {
             padding-top: 180px;
@@ -88,7 +91,6 @@
             &-list-container {
                 padding: 1em;
                 margin-left: 0;
-                background-color: #71aea4;
             }
         }
     }

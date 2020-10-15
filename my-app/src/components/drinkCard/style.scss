@@ -1,3 +1,4 @@
+@import '../../styles/vars';
 
 .custom-card-container {
 display: flex;
@@ -8,7 +9,7 @@ margin: 1em;
 background: none;
 
 &:hover {
-    background-color: #f9dcae;
+    background-color: $color-beige;
     border-radius: 6px;
     & .card {
         margin: 0.8em;
@@ -18,7 +19,7 @@ background: none;
 
 .card {
     position: relative;
-    background: #6caca1;
+    background: $color-blue-3;
     //width: 400px;
     //height: 75vh;
     border-radius: 6px;
@@ -73,20 +74,20 @@ background: none;
 
 @keyframes LineFadeIn {
     0% { opacity: 0; d: path("M 0 400 Q 0 400 0 400 Q 0 400 0 400 Q 0 400 0 400 C 0 400 0 400 0 400 Q 0 400 0 400 "); stroke: #fff; }
-    50% { opacity: 1; d: path("M 0 400 Q 50 400 100 400 Q 250 400 350 400 C 350 400 500 400 650 400 Q 675 400 700 400 Q 790 400 800 400"); stroke: #fead6a; }
-    100% { opacity: 1; d: path("M -2 370 Q 50 370 100 370 Q 250 370 350 370 C 400 370 550 370 650 370 Q 675 370 700 370 Q 790 370 800 500"); stroke: #f9dcae; }
+    50% { opacity: 1; d: path("M 0 400 Q 50 400 100 400 Q 250 400 350 400 C 350 400 500 400 650 400 Q 675 400 700 400 Q 790 400 800 400"); stroke: $color-beige-orange; }
+    100% { opacity: 1; d: path("M -2 370 Q 50 370 100 370 Q 250 370 350 370 C 400 370 550 370 650 370 Q 675 370 700 370 Q 790 370 800 500"); stroke: $color-beige; }
   }
 
 @keyframes LineFadeIn2 {
 0% { opacity: 0; d: path("M 0 430 Q 0 430 0 430 Q 0 430 0 430 Q 0 430 0 430 C 0 430 0 430 0 430 Q 0 430 0 430 "); stroke: #fff; }
-50% { opacity: 1; d: path("M 0 430 Q 50 430 100 430 Q 250 430 350 430 C 350 430 500 430 650 430 Q 675 430 700 430 Q 790 430 800 430"); stroke: #011f51; }
-100% { opacity: 1; d: path("M -2 382 Q 50 382 100 382 Q 250 382 350 382 C 400 382 550 382 650 382 Q 675 382 700 382 Q 778 382 788 500"); stroke: #016d92; }
+50% { opacity: 1; d: path("M 0 430 Q 50 430 100 430 Q 250 430 350 430 C 350 430 500 430 650 430 Q 675 430 700 430 Q 790 430 800 430"); stroke: $color-blue-dark; }
+100% { opacity: 1; d: path("M -2 382 Q 50 382 100 382 Q 250 382 350 382 C 400 382 550 382 650 382 Q 675 382 700 382 Q 778 382 788 500"); stroke: $color-blue-1; }
 }
 
 @keyframes LineFadeIn3 {
     0% { opacity: 0; d: path("M 0 460 Q 0 460 0 460 Q 0 460 0 460 Q 0 460 0 460 C 0 460 0 460 0 460 Q 0 460 0 460 "); stroke: #fff; }
-    50% { opacity: 1; d: path("M 0 460 Q 50 460 100 460 Q 250 460 350 460 C 350 460 500 460 650 460 Q 675 460 700 460 Q 790 460 800 460"); stroke: #011f51; }
-    100% { opacity: 1; d: path("M -2 394 Q 50 394 100 394 Q 250 394 350 394 C 400 394 550 394 650 394 Q 675 394 700 394 Q 766 394 776 500"); stroke: #012254; }
+    50% { opacity: 1; d: path("M 0 460 Q 50 460 100 460 Q 250 460 350 460 C 350 460 500 460 650 460 Q 675 460 700 460 Q 790 460 800 460"); stroke: $color-blue-dark; }
+    100% { opacity: 1; d: path("M -2 394 Q 50 394 100 394 Q 250 394 350 394 C 400 394 550 394 650 394 Q 675 394 700 394 Q 766 394 776 500"); stroke: $color-blue-dark; }
     }
 
 @keyframes ContentFadeIn {
