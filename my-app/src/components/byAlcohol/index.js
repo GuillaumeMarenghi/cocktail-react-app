@@ -19,7 +19,7 @@ const ByAlcohol = ({ getCocktailByAlcohol, viewCocktailDetail, cocktailByAlcohol
         if (cocktailByAlcohol) {
             setNbPages(Math.round(cocktailByAlcohol.length/12))
             };
-    })
+    },[cocktailByAlcohol])
 
     useEffect( () => {
         if (location.pathname === '/alcohol') {

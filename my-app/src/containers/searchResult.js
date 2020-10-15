@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import SearchResult from '../components/searchResult';
 import { viewCocktailDetail } from '../store/action';
-import { SearchResults } from 'semantic-ui-react';
 
 const mapStateToProps = (state) => ({
     loading: state.loading,

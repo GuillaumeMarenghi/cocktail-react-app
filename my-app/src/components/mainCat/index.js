@@ -31,7 +31,7 @@ const MainCat = ({ getCategories, getCategoryCocktail, viewCocktailDetail, categ
         if (cocktailByCat) {
             setNbPages(Math.round(cocktailByCat.length/12))
             };
-    })
+    }, [cocktailByCat]);
 
     const [nbPages, setNbPages] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);

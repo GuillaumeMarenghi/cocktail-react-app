@@ -20,24 +20,26 @@
 .pagination {
     margin: 1em;
     &-btn {
-        background-color: #04049d;
-        color: #2acdc1;
+        background-color: #012152;
+        color: #016f94;
         padding: 0.5em 1.5em;
-        border: 3px solid #2acdc1;
+        border: 3px solid #016f94;
+        border-radius: 5px;
         font-weight: bold;
         font-style: italic;
     }
     &-btn:hover {
-        background-color: #04049d80;
+        background-color: #01215290;
         transform: translate(10px, 0px);
         background-position: right !important; 
     }
     &-count {
-        color: #04049d;
+        color: #012152;
         margin: 2em;
         padding: 0.8em;
-        background-color:#2acdc1;
+        background-color:#f9dbad;
         font-weight: bold;
+        border-radius: 5px;
     }
 }
 
@@ -47,7 +49,7 @@
             margin: 0.8em;
         }
         &-btn:hover {
-            background-color: #04049d;
+            background-color: #01215290;
             transform: translate(0px, 0px);
         }
     }
@@ -59,7 +61,7 @@
             margin: 0.1em;
         }
         &-btn:hover {
-            background-color: #04049d;
+            background-color: #01215290;
             transform: translate(0px, 0px);
         }
     }

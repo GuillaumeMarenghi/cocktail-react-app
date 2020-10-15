@@ -1,42 +1,101 @@
-.cocktail-card{
-    background: none!important;
-    background-color: #04049d!important;
-    border: none !important;
-    border: 2px solid #2acdc1!important;
-    color: #2acdc1!important;
-    font-weight: bold;
-    font-size: 1.4em;
-    box-sizing: border-box;
-    padding: 0.5em 0.5em 1em 1em;
-    &-img {
-        border-radius: 10%;
+
+.custom-card-container {
+display: flex;
+align-items: center;
+justify-content: center;
+//height: 100vh;
+margin: 1em;
+background: none;
+
+&:hover {
+    background-color: #f9dcae;
+    border-radius: 6px;
+    & .card {
+        margin: 0.8em;
     }
-    &-content {
-        text-align: left;
-        &-span {
-            position: relative;
-            bottom: 15px;
-            left: 0px;
-            background-color: #2acdc1;
-            color: #a333c8;
-            padding: 0.5em;
-        }
-    }
-    &-container {
-        border: none!important;
-        max-width: 100%;
-        margin-top: 1em;
-        animation:fadeIn 1.2s cubic-bezier(0.02, 0.79, 0.34, 0.98)  !important;
-    }
-    &:hover{
-        transform: translate(0, -15px);
-        background-position: right center!important; 
-        cursor: pointer;
-        background-color: #04049d95!important;
-        color: #2acdc1;
-    }   
+}
 }
 
-img.ui.medium.image {
-    box-sizing: border-box;
-} 
+.card {
+    position: relative;
+    background: #6caca1;
+    //width: 400px;
+    //height: 75vh;
+    border-radius: 6px;
+    padding: 2rem;
+    color: #aaa;
+    box-shadow: 0 .25rem .25rem rgba(0,0,0,0.2),
+        0 0 1rem rgba(0,0,0,0.2);
+    overflow: hidden;
+
+    &__image-container {
+        margin: -2rem -2rem 1rem -2rem;
+    }
+
+    &__line {
+        opacity: 0;
+        animation: LineFadeIn .8s .3s forwards ease-in;
+    &_2 {
+        opacity: 0;
+        animation: LineFadeIn2 .8s .3s forwards ease-in;
+    }
+    &_3 {
+        opacity: 0;
+        animation: LineFadeIn3 .8s .3s forwards ease-in;
+    }
+    }
+
+    &__image {
+        opacity: 0;
+        animation: ImageFadeIn .8s 1.4s forwards;
+    }
+
+    &__title {
+        color: white;
+        margin-top: 0;
+        font-weight: bold;
+        letter-spacing: 0.01em;
+    }
+
+    &__content {
+        //background-color: #04049d;
+        margin-top: -1rem;
+        opacity: 0;
+        animation: ContentFadeIn .4s .8s forwards;
+    }
+
+    &__svg {
+        position: absolute;
+        left: 0;
+        top: 115px;
+    }
+}
+
+@keyframes LineFadeIn {
+    0% { opacity: 0; d: path("M 0 400 Q 0 400 0 400 Q 0 400 0 400 Q 0 400 0 400 C 0 400 0 400 0 400 Q 0 400 0 400 "); stroke: #fff; }
+    50% { opacity: 1; d: path("M 0 400 Q 50 400 100 400 Q 250 400 350 400 C 350 400 500 400 650 400 Q 675 400 700 400 Q 790 400 800 400"); stroke: #fead6a; }
+    100% { opacity: 1; d: path("M -2 370 Q 50 370 100 370 Q 250 370 350 370 C 400 370 550 370 650 370 Q 675 370 700 370 Q 790 370 800 500"); stroke: #f9dcae; }
+  }
+
+@keyframes LineFadeIn2 {
+0% { opacity: 0; d: path("M 0 430 Q 0 430 0 430 Q 0 430 0 430 Q 0 430 0 430 C 0 430 0 430 0 430 Q 0 430 0 430 "); stroke: #fff; }
+50% { opacity: 1; d: path("M 0 430 Q 50 430 100 430 Q 250 430 350 430 C 350 430 500 430 650 430 Q 675 430 700 430 Q 790 430 800 430"); stroke: #011f51; }
+100% { opacity: 1; d: path("M -2 382 Q 50 382 100 382 Q 250 382 350 382 C 400 382 550 382 650 382 Q 675 382 700 382 Q 778 382 788 500"); stroke: #016d92; }
+}
+
+@keyframes LineFadeIn3 {
+    0% { opacity: 0; d: path("M 0 460 Q 0 460 0 460 Q 0 460 0 460 Q 0 460 0 460 C 0 460 0 460 0 460 Q 0 460 0 460 "); stroke: #fff; }
+    50% { opacity: 1; d: path("M 0 460 Q 50 460 100 460 Q 250 460 350 460 C 350 460 500 460 650 460 Q 675 460 700 460 Q 790 460 800 460"); stroke: #011f51; }
+    100% { opacity: 1; d: path("M -2 394 Q 50 394 100 394 Q 250 394 350 394 C 400 394 550 394 650 394 Q 675 394 700 394 Q 766 394 776 500"); stroke: #012254; }
+    }
+
+@keyframes ContentFadeIn {
+0% { transform: translateY(-1rem); opacity: 0; }
+100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes ImageFadeIn {
+0% { transform: translate(-.5rem, -.5rem) scale(1.05); opacity: 0; filter: blur(2px); }
+50% { opacity: 1; filter: blur(2px); }
+100% { transform: translateY(0) scale(1.0); opacity: 1; filter: blur(0); }
+}
