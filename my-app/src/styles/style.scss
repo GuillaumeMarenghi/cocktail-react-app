@@ -6,12 +6,13 @@
 
 .main-component, .main-cat-container, .searchResult-component, .recipe-container {
     padding-top: 135px;
-    background-image: url('./cocktail.svg');
-    background-size: 10%;
+    //background-image: url('./cocktail.svg');
+    background-color: #f9dbad;
+    //background-size: 10%;
     //background-repeat: no-repeat;
-    background-position: center;
+    //background-position: center;
     min-height: 100%;
-    background-attachment: fixed;  
+    //background-attachment: fixed;  
 }
 
 @media (max-width: 768px) {
