@@ -23,7 +23,7 @@ function App({ getCocktail }) {
       {/* <Nav /> */}
       <Switch>
         <Route exact path="/" component={Main} />
-        <Route path="/categories" component={MainCat} />
+        <Route path="/categories/" component={MainCat} />
         <Route path="/alcohol" component={ByAlcohol}/>
         <Route exact path="/recipe/:slug" component={Recipe} />
         <Route exact path="/searchResult" component={SearchResult} />

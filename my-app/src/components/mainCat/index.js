@@ -5,7 +5,7 @@ import DrinkCard from "../drinkCard";
 import CustomBtn from "../customBtn";
 import Title from '../title';
 import Pagination from '../pagination';
-import { useLocation } from 'react-router-dom';
+import { useLocation , Redirect} from 'react-router-dom';
 
 import { Loader} from 'semantic-ui-react';
 
