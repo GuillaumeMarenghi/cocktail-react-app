@@ -7,7 +7,7 @@ import Title from '../title';
 const Main = (props) => { 
     
     return (
-    <div className="main-component">
+    <div className="main-component nightclub">
         <Title content='Most Popular Cocktail' />
         <div className="main-component-container">
         {props.cocktail.map( cocktail => <div key={cocktail.idDrink} className='main-component-drinkCard' >

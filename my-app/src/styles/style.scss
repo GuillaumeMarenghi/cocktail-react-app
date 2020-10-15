@@ -6,13 +6,18 @@
 
 .main-component, .main-cat-container, .searchResult-component, .recipe-container {
     padding-top: 135px;
-    //background-image: url('./cocktail.svg');
-    background-color: #f9dbad;
-    //background-size: 10%;
-    //background-repeat: no-repeat;
-    //background-position: center;
-    min-height: 100%;
-    //background-attachment: fixed;  
+    min-height: 100%;;
+    background-color: #fff;
+    background-attachment: fixed; 
+    //css patterns
+    background-color:#f9dbad;
+    background-image:
+    radial-gradient(circle at 100% 150%, #f9dbad 24%, #fff 24%, #fff 28%, #f9dbad 28%, #f9dbad 36%, #fff 36%, #fff 40%, transparent 40%, transparent),
+    radial-gradient(circle at 0    150%, #f9dbad 24%, #fff 24%, #fff 28%, #f9dbad 28%, #f9dbad 36%, #fff 36%, #fff 40%, transparent 40%, transparent),
+    radial-gradient(circle at 50%  100%, #fff 10%, #f9dbad 10%, #f9dbad 23%, #fff 23%, #fff 30%, #f9dbad 30%, #f9dbad 43%, #fff 43%, #fff 50%, #f9dbad 50%, #f9dbad 63%, #fff 63%, #fff 71%, transparent 71%, transparent),
+    radial-gradient(circle at 100% 50%, #fff 5%, #f9dbad 5%, #f9dbad 15%, #fff 15%, #fff 20%, #f9dbad 20%, #f9dbad 29%, #fff 29%, #fff 34%, #f9dbad 34%, #f9dbad 44%, #fff 44%, #fff 49%, transparent 49%, transparent),
+    radial-gradient(circle at 0    50%, #fff 5%, #f9dbad 5%, #f9dbad 15%, #fff 15%, #fff 20%, #f9dbad 20%, #f9dbad 29%, #fff 29%, #fff 34%, #f9dbad 34%, #f9dbad 44%, #fff 44%, #fff 49%, transparent 49%, transparent);
+    background-size: 100px 50px;
 }
 
 @media (max-width: 768px) {
