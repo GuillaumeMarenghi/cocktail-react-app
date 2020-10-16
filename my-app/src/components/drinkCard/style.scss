@@ -14,6 +14,11 @@ background: none;
     & img, .custom-card-container:focus img {
         transform: scale(1.1);
     }
+/*     & .card__svg {
+        position: absolute;
+        left: 0;
+        top: 135px;
+    } */
 }
 
 }
@@ -54,11 +59,9 @@ background: none;
 
     &__title {
         color: white;
-        margin-top: 0;
+        margin-top: 0.5em;
         font-weight: bold;
         letter-spacing: 0.01em;
-        background-color:$color-blue-3;
-        width: 100%;
     }
 
     &__content {
@@ -71,7 +74,7 @@ background: none;
     &__svg {
         position: absolute;
         left: 0;
-        top: 115px;
+        top: 135px;
     }
 }
 
