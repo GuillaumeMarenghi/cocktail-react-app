@@ -23,22 +23,27 @@ const Recipe = ({cocktail}) => {
     
     return (
     <div className="recipe-container">
+        {!cocktail ?
+        <Title content="Recipe Not Found" />
+        : 
+        <div>
         <Title content={`Recipe of ${cocktail.strDrink}`} />
-    <div className="recipe">
-        {/* <h2>{cocktail.strDrink}</h2> */}
-        <div className="recipe-center">
-        <Image src={cocktail.strDrinkThumb} size='medium' circular />
-        <div className="recipe-center-list-container">
-        <List bulleted className='recipe-center-list'>
-        {ingredients.map( elm => <List.Item>{elm}</List.Item>)}  
-        </List>
+        <div className="recipe">
+            <div className="recipe-center">
+            <Image src={cocktail.strDrinkThumb} size='medium' circular />
+            <div className="recipe-center-list-container">
+            <List bulleted className='recipe-center-list'>
+            {ingredients.map( elm => <List.Item>{elm}</List.Item>)}  
+            </List>
+            </div>
+            </div>
+            <div className='recipe-instruction'>
+                <h3>Instructions</h3>
+            {cocktail.strInstructions ? <div>{cocktail.strInstructions}</div> : <div>mix the ingredients</div>}    
+            </div>
         </div>
         </div>
-        <div className='recipe-instruction'>
-            <h3>Instructions</h3>
-        {cocktail.strInstructions ? <div>{cocktail.strInstructions}</div> : <div>mix the ingredients</div>}    
-        </div>
-    </div>
+        }
     </div>
 )}
 

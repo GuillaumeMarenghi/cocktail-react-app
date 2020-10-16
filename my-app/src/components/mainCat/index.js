@@ -7,7 +7,7 @@ import Title from '../title';
 import Pagination from '../pagination';
 import { useLocation , Redirect} from 'react-router-dom';
 
-import { Loader} from 'semantic-ui-react';
+import { Loader, Image} from 'semantic-ui-react';
 
 
 const MainCat = ({ getCategories, getCategoryCocktail, viewCocktailDetail, categories, cocktailByCat, loading }) => {
@@ -51,8 +51,27 @@ const MainCat = ({ getCategories, getCategoryCocktail, viewCocktailDetail, categ
     <div className="main-cat-container">
     {!result 
     ?
+    <div className="main-cat-content-container">
+        <div className="main-cat-content-container-text">Lots of recipes to try! But where to start? To help you find your way around, we've listed his best recipes in three selections.</div>
     <div className="main-cat-btn">
-        {categories.map(elm => (
+        {categories.map(elm => {
+            let imgUrl;
+            switch (elm.strCategory) {
+                case "Ordinary drink":
+                    imgUrl = 'https://www.thecocktaildb.com/images/media/drink/rrtssw1472668972.jpg'
+                    break;
+                case "Cocktail" :
+                    imgUrl = 'https://www.thecocktaildb.com/images/media/drink/d7mo481504889531.jpg'
+                    break;
+                case "Shot" :
+                    imgUrl = 'https://www.thecocktaildb.com/images/media/drink/rrqrst1477140664.jpg'
+                    break;
+                default:
+                    imgUrl = 'https://www.thecocktaildb.com/images/media/drink/rrtssw1472668972.jpg'
+            }
+            return(
+            <div className="main-cat-btn-category">
+                <div><Image src={imgUrl} size='medium' rounded='true'/></div>
             <CustomBtn 
             key={elm.strCategory} 
             content={elm.strCategory} 
@@ -61,7 +80,9 @@ const MainCat = ({ getCategories, getCategoryCocktail, viewCocktailDetail, categ
             clearBtn={clearBtn}
             url="categories"
             />
-        ))}
+            </div>
+        )})}
+    </div>
     </div>
     :
     <div>    

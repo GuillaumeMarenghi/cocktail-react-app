@@ -8,7 +8,7 @@ const Nav = ({activeItem, changeToHome, changeToCat, changeToAlcohol}) => {
 
     return (
       <div className='nav-container'>
-        <Segment inverted>
+        <Segment inverted >
         <div className='segment-menu'>
         <Menu inverted pointing secondary>
           <Link to='/'>
@@ -40,7 +40,7 @@ const Nav = ({activeItem, changeToHome, changeToCat, changeToAlcohol}) => {
 }
 
 Nav.propTypes = {
-  activeItem: PropTypes.string.isRequired,
+  activeItem: PropTypes.string,
   changeToHome: PropTypes.func.isRequired,
   changeToCat: PropTypes.func.isRequired,
   changeToAlcohol: PropTypes.func.isRequired

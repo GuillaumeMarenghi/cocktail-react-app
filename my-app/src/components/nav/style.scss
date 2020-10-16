@@ -1,3 +1,5 @@
+@import '../../styles/vars';
+
 .segment-menu {
     display: flex;
 }
@@ -5,4 +7,8 @@
     margin: 0;
     padding: none;
     width: 100%;
+}
+
+div.ui.inverted.segment {
+    background-color: $color-blue-dark;
 }

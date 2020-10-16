@@ -3,6 +3,9 @@
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
+        &-category {
+            margin: 2em;
+        }
     }
 
     &-card {
@@ -15,7 +18,16 @@
             margin: auto;
         }
     }
+
+    &-content-container {
+        &-text {
+            font-size: 1.5em;
+            margin: 1.2em;
+            font-style: italic;
+        }
+    }
 }
+
 
 .pagination {
     margin: 1em;
