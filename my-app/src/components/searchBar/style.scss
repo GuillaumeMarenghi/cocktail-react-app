@@ -1,3 +1,6 @@
-.ui.input {
-    ;
+@import '../../styles/vars';
+
+.search-bar-input {
+    border: 2px $color-blue-dark solid;
+    border-radius: 0.4em;
 }

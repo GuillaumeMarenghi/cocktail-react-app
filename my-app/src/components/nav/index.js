@@ -10,7 +10,7 @@ const Nav = ({activeItem, changeToHome, changeToCat, changeToAlcohol}) => {
       <div className='nav-container'>
         <Segment inverted >
         <div className='segment-menu'>
-        <Menu inverted pointing secondary>
+        <Menu pointing secondary >
           <Link to='/'>
           <Menu.Item
             name='most popular'

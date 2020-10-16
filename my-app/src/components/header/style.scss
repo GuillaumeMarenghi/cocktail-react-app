@@ -9,16 +9,19 @@
     position: fixed;
     top: 0;
     z-index: 100;
-    background-color: $color-blue-3;
-    color: $color-blue-dark;
+    //background-color: $color-beige;
+    background-image: radial-gradient(circle,$color-blue-3, $color-blue-1, $color-blue-dark);
+    color: $color-beige-orange;
     &-input {
         margin-left: 2.5em;
     }
     &-group-1 {
         display: flex;
-        padding: 0.5em 0;
+        padding: 0.5em 0 0 0;
     }
+
 }
+
  @media (max-width: 768px) {
      .main-header {
          justify-content: center;
