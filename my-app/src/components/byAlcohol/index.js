@@ -5,7 +5,7 @@ import DrinkCard from '../drinkCard';
 import CustomBtn from '../customBtn';
 import Title from '../title';
 import Pagination from '../pagination';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Redirect } from 'react-router-dom';
 
 import { Loader, Image } from 'semantic-ui-react';
 
@@ -32,6 +32,7 @@ const ByAlcohol = ({ getCocktailByAlcohol, viewCocktailDetail, cocktailByAlcohol
 
     const clearBtn = (value) => {
         setResult(true);
+        setData(true);
         setCurrentCat(value)
     }
 
@@ -41,6 +42,7 @@ const ByAlcohol = ({ getCocktailByAlcohol, viewCocktailDetail, cocktailByAlcohol
     const [currentPage, setCurrentPage] = useState(1);
     const [result, setResult] = useState(false);
     const [currentCat, setCurrentCat] = useState('');
+    const [data, setData] = useState(false);
 
     let currentCocktailByAlcohol = cocktailByAlcohol.slice((currentPage - 1)*12, currentPage*12)
 
@@ -88,7 +90,7 @@ const ByAlcohol = ({ getCocktailByAlcohol, viewCocktailDetail, cocktailByAlcohol
                     imgUrl = 'https://www.thecocktaildb.com/images/media/drink/rrtssw1472668972.jpg'
             }
             return (
-            <div className="main-cat-btn-category">
+            <div className="main-cat-btn-category" key={elm}>
             <div><Image src={imgUrl} size='small' rounded='true'/></div>
             <CustomBtn 
             key={elm} 
@@ -107,9 +109,12 @@ const ByAlcohol = ({ getCocktailByAlcohol, viewCocktailDetail, cocktailByAlcohol
     <Title content={currentCat} />
     {loading ? <div><Loader active></Loader></div> : <div> 
     <div className="main-cat-card-container">
-        {currentCocktailByAlcohol.map(elm => (
+        {result && data ?
+        currentCocktailByAlcohol.map(elm => (
             <div key={elm.idDrink} className="main-cat-card"><DrinkCard cocktail={elm} viewCocktailDetail={viewCocktailDetail}/></div>
-        ))}
+        ))
+        :
+        <Redirect exact to='/alcohol' />}
     </div>
     { nbPages !== 0 &&
     <Pagination nbPages={nbPages} currentPage={currentPage} changePage={(value) => {setCurrentPage(currentPage + value)}}/>
@@ -126,7 +131,7 @@ ByAlcohol.propTypes = {
     getCocktailByAlcohol: PropTypes.func.isRequired,
     viewCocktailDetail: PropTypes.func.isRequired,
     cocktailByAlcohol: PropTypes.arrayOf(PropTypes.object).isRequired,
-    loaing: PropTypes.bool
+    loading: PropTypes.bool
 };
 
 export default ByAlcohol;

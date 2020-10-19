@@ -3,7 +3,7 @@ import './style.scss';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 
-import { Input, Icon } from 'semantic-ui-react';
+import { Input } from 'semantic-ui-react';
 /* import { Search } from 'semantic-ui-react' */
 
 const SearchBar = ({searchValue, onFormSubmit, onInputChange}) => {
@@ -30,7 +30,7 @@ const SearchBar = ({searchValue, onFormSubmit, onInputChange}) => {
        action={{ icon: 'search' }}
        className="search-bar-input"
        type="text"
-       placeholder="Find a cocktail"
+       placeholder="  Find a cocktail"
        onChange={(e) => {
            onInputChange(e.target.value)
        }}

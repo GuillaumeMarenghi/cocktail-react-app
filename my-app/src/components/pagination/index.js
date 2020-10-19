@@ -1,5 +1,5 @@
 import React from 'react';
-//import './style.scss';
+import './style.scss';
 import PropTypes from 'prop-types';
 
 const Pagination = (({nbPages, currentPage, changePage}) => (

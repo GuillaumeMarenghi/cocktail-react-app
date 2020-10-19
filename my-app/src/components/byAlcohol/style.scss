@@ -1,0 +1,23 @@
+@media(min-width: 1350px){
+    .main-cat-btn {
+        width: 80%;
+        margin: auto;
+    }
+    .main-cat-content-container-text {
+        margin-top: 0;
+    }
+}
+
+@media(min-width: 1440px){
+    .main-cat-btn {
+        width: 70%;
+        margin: auto;
+    }
+}
+
+@media(min-width: 1700px){
+    .main-cat-btn {
+        width: 60%;
+        margin: auto;
+    }
+}

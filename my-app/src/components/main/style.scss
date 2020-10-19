@@ -23,29 +23,32 @@
         margin-bottom: 1em;
         background-color: #2acdc1;
         color: #04049d;
-        padding: 0.5em;
+        padding: 1em;
         outline: 3px solid #04049d;
         outline-offset: .6rem;
         
     }
 }
 
-@media (max-width: 680px) {
-    .main-component-container {
-        width: 80%
-    }
-
-}
 @media (max-width: 1600px) {
     .main-component-container {
         width: 60%
     }
 }
 
+@media (max-width: 720px) {
+    .main-component-container {
+        width: 80%;
+    }
+    .main-component-drinkCard {
+        padding-top: 1em;
+    }
+}
+/* 
 @media (max-height: 715px) {
     .main-component h2 {
-        margin: 0;
+        margin: 1em;
     }
-} 
+}  */
 
 

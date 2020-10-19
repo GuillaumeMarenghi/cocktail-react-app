@@ -37,6 +37,7 @@ const MainCat = ({ getCategories, getCategoryCocktail, viewCocktailDetail, categ
     const [currentPage, setCurrentPage] = useState(1);
     const [result, setResult] = useState(false);
     const [currentCat, setCurrentCat] = useState('');
+    const [data ,setData] = useState(false);
 
     let currentCocktailByCat = cocktailByCat.slice((currentPage - 1)*12, currentPage*12);
 
@@ -44,7 +45,8 @@ const MainCat = ({ getCategories, getCategoryCocktail, viewCocktailDetail, categ
 
     const clearBtn = (value) => {
         setResult(true);
-        setCurrentCat(value)
+        setData(true);
+        setCurrentCat(value);
     }
       
     return (
@@ -90,9 +92,14 @@ const MainCat = ({ getCategories, getCategoryCocktail, viewCocktailDetail, categ
         <div>
             {loading ? <div><Loader active></Loader></div> : <div> 
             <div className="main-cat-card-container">
-                {currentCocktailByCat.map(elm => (
+                {data
+                ?
+                currentCocktailByCat.map(elm => (
                     <div key={elm.idDrink} className="main-cat-card"><DrinkCard cocktail={elm} viewCocktailDetail={viewCocktailDetail}/></div>
-                ))}
+                ))
+            :
+            <Redirect exact to='/categories' />
+            }
             </div>   
             { nbPages !== 0 &&
                 <Pagination nbPages={nbPages} currentPage={currentPage} changePage={(value) => {setCurrentPage(currentPage + value)}}/>

@@ -25,6 +25,9 @@
  @media (max-width: 768px) {
      .main-header {
          justify-content: center;
+         & h1 {
+             color: $color-blue-dark;
+         }
          &-group-1 {
              display: block;
          }

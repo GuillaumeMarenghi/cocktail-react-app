@@ -10,6 +10,7 @@ import MainCat from "../../containers/mainCat"
 import Recipe from '../../containers/recipe';
 import ByAlcohol from '../../containers/byAlcohol';
 import SearchResult from '../../containers/searchResult';
+import Footer from '../footer';
 
 function App({ getCocktail }) {
 
@@ -28,6 +29,7 @@ function App({ getCocktail }) {
         <Route exact path="/recipe/:slug" component={Recipe} />
         <Route exact path="/searchResult" component={SearchResult} />
       </Switch>
+      <Footer />
     </div>
   );
 }
