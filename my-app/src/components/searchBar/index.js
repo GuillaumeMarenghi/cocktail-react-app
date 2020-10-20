@@ -25,8 +25,8 @@ const SearchBar = ({searchValue, onFormSubmit, onInputChange}) => {
        }}
        >
        <Input
-       inverted='true'
-       transparent='true'
+       inverted
+       transparent
        action={{ icon: 'search' }}
        className="search-bar-input"
        type="text"

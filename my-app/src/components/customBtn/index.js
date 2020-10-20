@@ -8,7 +8,7 @@ const CustomBtn = ({content, action, initCurrentPages, clearBtn, url}) => {
     const urlContent = content.replace(/ /g,"_");
 
     return (
-    <Link to={`/${url}/${content}`} >
+    <Link to={`/${url}/${content}/`} >
     <section id="intro">
 
     <div id="intro-content" className="center-content">

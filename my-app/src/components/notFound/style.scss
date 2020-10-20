@@ -1,0 +1,19 @@
+@import '../../styles/vars';
+
+.not-found {
+    background-image: url('./pexels-buenosia-carol-1633940.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    &-404 {
+        margin-top: 135px;
+        font-size: xx-large;
+        font-weight: bold;
+        padding: 2em;
+    }
+    &-text {
+        padding-bottom: 10em;
+        font-size: x-large;
+        text-shadow: 1px 1px 2px pink;
+    }
+}

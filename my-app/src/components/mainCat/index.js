@@ -14,16 +14,24 @@ const MainCat = ({ getCategories, getCategoryCocktail, viewCocktailDetail, categ
     
     let location = useLocation();
 
+    const [nbPages, setNbPages] = useState(0);
+    const [currentPage, setCurrentPage] = useState(location.pathname.slice(-1));
+    const [result, setResult] = useState(false);
+    const [currentCat, setCurrentCat] = useState('');
+
     useEffect(() => { 
         getCategories();
-    }, []);
+    },[getCategories]);
 
     useEffect( () => {
         if (location.pathname === '/categories') {
         setResult(false);
         } else {
+            if (location.pathname.slice(-1).isInteger) {
+                setCurrentPage(location.pathname.slice(-1))
+            };
+            setCurrentCat(location.pathname.slice(12,-1).replace(/\//g,""));
             setResult(true);
-            setCurrentCat(location.pathname.slice(12))
         }       
     }, [location]);
 
@@ -33,11 +41,6 @@ const MainCat = ({ getCategories, getCategoryCocktail, viewCocktailDetail, categ
             };
     }, [cocktailByCat]);
 
-    const [nbPages, setNbPages] = useState(0);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [result, setResult] = useState(false);
-    const [currentCat, setCurrentCat] = useState('');
-    const [data ,setData] = useState(false);
 
     let currentCocktailByCat = cocktailByCat.slice((currentPage - 1)*12, currentPage*12);
 
@@ -45,10 +48,9 @@ const MainCat = ({ getCategories, getCategoryCocktail, viewCocktailDetail, categ
 
     const clearBtn = (value) => {
         setResult(true);
-        setData(true);
         setCurrentCat(value);
     }
-      
+
     return (
     <div className="main-cat-container">
     {!result 
@@ -72,8 +74,8 @@ const MainCat = ({ getCategories, getCategoryCocktail, viewCocktailDetail, categ
                     imgUrl = 'https://www.thecocktaildb.com/images/media/drink/rrtssw1472668972.jpg'
             }
             return(
-            <div className="main-cat-btn-category">
-                <div><Image src={imgUrl} size='medium' rounded='true'/></div>
+            <div className="main-cat-btn-category" key={elm.strCategory}>
+                <div><Image src={imgUrl} size='medium' rounded/></div>
             <CustomBtn 
             key={elm.strCategory} 
             content={elm.strCategory} 
@@ -92,13 +94,13 @@ const MainCat = ({ getCategories, getCategoryCocktail, viewCocktailDetail, categ
         <div>
             {loading ? <div><Loader active></Loader></div> : <div> 
             <div className="main-cat-card-container">
-                {data
+            {currentCocktailByCat.length
                 ?
                 currentCocktailByCat.map(elm => (
                     <div key={elm.idDrink} className="main-cat-card"><DrinkCard cocktail={elm} viewCocktailDetail={viewCocktailDetail}/></div>
                 ))
-            :
-            <Redirect exact to='/categories' />
+                :
+                <Redirect exact to='/categories' />
             }
             </div>   
             { nbPages !== 0 &&

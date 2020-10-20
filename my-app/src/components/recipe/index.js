@@ -33,7 +33,7 @@ const Recipe = ({cocktail}) => {
             <Image src={cocktail.strDrinkThumb} size='medium' circular />
             <div className="recipe-center-list-container">
             <List bulleted className='recipe-center-list'>
-            {ingredients.map( elm => <List.Item>{elm}</List.Item>)}  
+            {ingredients.map( elm => <List.Item key={elm}>{elm}</List.Item>)}  
             </List>
             </div>
             </div>
