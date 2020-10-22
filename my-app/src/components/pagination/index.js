@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './style.scss';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 const Pagination = (({nbPages, currentPage, currentPageUp, currentPageDown}) => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    })
 
 return (
     <div className='pagination'>
