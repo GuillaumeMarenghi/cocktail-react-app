@@ -21,7 +21,10 @@ import {
     GET_CATEGORY_COCKTAIL_ERROR,
     GET_COCKTAIL_BY_ALCOHOL,
     GET_COCKTAIL_BY_ALCOHOL_SUCCESS,
-    GET_COCKTAIL_BY_ALCOHOL_ERROR
+    GET_COCKTAIL_BY_ALCOHOL_ERROR,
+    CURRENT_PAGE_INIT,
+    CURRENT_PAGE_UP,
+    CURRENT_PAGE_DOWN
 } from '../action';
 
 const initialState = {
@@ -40,6 +43,7 @@ const initialState = {
     cocktailAlcohol: "",
     cocktailByAlcohol: [],
     cocktailBySearch: [],
+    currentPage: 0,
 }
 
 export default (state = initialState, action = {}) => {
@@ -190,6 +194,21 @@ export default (state = initialState, action = {}) => {
                     ...state,
                     loading: false,
                     error: action.payload
+                }
+            case CURRENT_PAGE_INIT:
+                return {
+                    ...state,
+                    currentPage: 1
+                }
+            case CURRENT_PAGE_UP:
+                return {
+                    ...state,
+                    currentPage: state.currentPage + 1
+                }
+            case CURRENT_PAGE_DOWN:
+                return {
+                    ...state,
+                    currentPage: state.currentPage - 1
                 }
         default:
             return state;

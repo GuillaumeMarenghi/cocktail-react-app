@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import ByAlcohol from '../components/byAlcohol';
-import { viewCocktailDetail, getCocktailByAlcohol } from '../store/action';
+import { viewCocktailDetail, getCocktailByAlcohol, currentPageInit } from '../store/action';
 
 const mapStateToProps = (state) => ({
     loading: state.loading,
     cocktailByAlcohol: state.cocktailByAlcohol,
-    coktailDetail: state.cocktailDetail 
+    coktailDetail: state.cocktailDetail,
+    currentPage: state.currentPage
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -14,6 +15,9 @@ const mapDispatchToProps = (dispatch) => ({
     },
     viewCocktailDetail: (value) => {
         dispatch(viewCocktailDetail(value));
+    },
+    initCurrentPage: () => {
+        dispatch(currentPageInit())
     }
 });
 

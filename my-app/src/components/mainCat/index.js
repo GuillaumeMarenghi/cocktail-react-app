@@ -2,20 +2,19 @@ import React, { useEffect, useState } from 'react';
 import './style.scss';
 import PropTypes from 'prop-types';
 import DrinkCard from "../drinkCard";
-import CustomBtn from "../customBtn";
+import CustomBtn from "../../containers/customBtn";
 import Title from '../title';
-import Pagination from '../pagination';
+import Pagination from '../../containers/pagination';
 import { useLocation , Redirect} from 'react-router-dom';
 
 import { Loader, Image} from 'semantic-ui-react';
 
 
-const MainCat = ({ getCategories, getCategoryCocktail, viewCocktailDetail, categories, cocktailByCat, loading }) => {
+const MainCat = ({ getCategories, getCategoryCocktail, viewCocktailDetail, categories, cocktailByCat, currentPage, loading }) => {
     
     let location = useLocation();
 
     const [nbPages, setNbPages] = useState(0);
-    const [currentPage, setCurrentPage] = useState(location.pathname.slice(-1));
     const [result, setResult] = useState(false);
     const [currentCat, setCurrentCat] = useState('');
 
@@ -27,9 +26,6 @@ const MainCat = ({ getCategories, getCategoryCocktail, viewCocktailDetail, categ
         if (location.pathname === '/categories') {
         setResult(false);
         } else {
-            if (location.pathname.slice(-1).isInteger) {
-                setCurrentPage(location.pathname.slice(-1))
-            };
             setCurrentCat(location.pathname.slice(12,-1).replace(/\//g,""));
             setResult(true);
         }       
@@ -43,8 +39,6 @@ const MainCat = ({ getCategories, getCategoryCocktail, viewCocktailDetail, categ
 
 
     let currentCocktailByCat = cocktailByCat.slice((currentPage - 1)*12, currentPage*12);
-
-    const initCurrentPages = () => setCurrentPage(1);
 
     const clearBtn = (value) => {
         setResult(true);
@@ -80,7 +74,6 @@ const MainCat = ({ getCategories, getCategoryCocktail, viewCocktailDetail, categ
             key={elm.strCategory} 
             content={elm.strCategory} 
             action={getCategoryCocktail} 
-            initCurrentPages={initCurrentPages} 
             clearBtn={clearBtn}
             url="categories"
             />
@@ -94,7 +87,7 @@ const MainCat = ({ getCategories, getCategoryCocktail, viewCocktailDetail, categ
         <div>
             {loading ? <div><Loader active></Loader></div> : <div> 
             <div className="main-cat-card-container">
-            {currentCocktailByCat.length
+            {result && currentCocktailByCat.length
                 ?
                 currentCocktailByCat.map(elm => (
                     <div key={elm.idDrink} className="main-cat-card"><DrinkCard cocktail={elm} viewCocktailDetail={viewCocktailDetail}/></div>
@@ -104,7 +97,7 @@ const MainCat = ({ getCategories, getCategoryCocktail, viewCocktailDetail, categ
             }
             </div>   
             { nbPages !== 0 &&
-                <Pagination nbPages={nbPages} currentPage={currentPage} changePage={(value) => {setCurrentPage(currentPage + value)}}/>
+                <Pagination nbPages={nbPages} currentPage={currentPage}/>
             }
             </div>}
         </div>

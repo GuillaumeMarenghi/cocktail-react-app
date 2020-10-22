@@ -2,21 +2,20 @@ import React, {useEffect, useState} from 'react';
 import './style.scss';
 import PropTypes from 'prop-types';
 import DrinkCard from '../drinkCard';
-import CustomBtn from '../customBtn';
+import CustomBtn from '../../containers/customBtn';
 import Title from '../title';
-import Pagination from '../pagination';
+import Pagination from '../../containers/pagination';
 import { useLocation, Redirect } from 'react-router-dom';
 
 import { Loader, Image } from 'semantic-ui-react';
 
-const ByAlcohol = ({ getCocktailByAlcohol, viewCocktailDetail, cocktailByAlcohol, loading}) => {
+const ByAlcohol = ({ getCocktailByAlcohol, viewCocktailDetail, cocktailByAlcohol, currentPage, loading}) => {
     
     const alcohols = ["Vodka", "Gin","Rum","Absinthe", "Whiskey","Bourbon","Wine"/* ,"Beer" */,"Cognac", "Cachaca", "tequila"];
     
     let location = useLocation();
 
     const [nbPages, setNbPages] = useState(0);
-    const [currentPage, setCurrentPage] = useState(location.pathname.slice(-1));
     const [result, setResult] = useState(false);
     const [currentCat, setCurrentCat] = useState('');
     
@@ -31,9 +30,6 @@ const ByAlcohol = ({ getCocktailByAlcohol, viewCocktailDetail, cocktailByAlcohol
         if (location.pathname === '/alcohol') {
         setResult(false);
         } else {
-            if (location.pathname.slice(-1).isInteger) {
-                setCurrentPage(location.pathname.slice(-1))
-            };
             setCurrentCat(location.pathname.slice(9,-1).replace(/\//g,""));
             setResult(true);
                
@@ -43,8 +39,6 @@ const ByAlcohol = ({ getCocktailByAlcohol, viewCocktailDetail, cocktailByAlcohol
         setResult(true);
         setCurrentCat(value)
     }
-
-    const initCurrentPages = () => setCurrentPage(1);
 
     let currentCocktailByAlcohol = cocktailByAlcohol.slice((currentPage - 1)*12, currentPage*12)
 
@@ -98,8 +92,7 @@ const ByAlcohol = ({ getCocktailByAlcohol, viewCocktailDetail, cocktailByAlcohol
             key={elm} 
             content={elm} 
             url="alcohol"
-            action={getCocktailByAlcohol} 
-            initCurrentPages={initCurrentPages}
+            action={getCocktailByAlcohol}
             clearBtn={clearBtn}
             />
             </div>
@@ -111,7 +104,7 @@ const ByAlcohol = ({ getCocktailByAlcohol, viewCocktailDetail, cocktailByAlcohol
     <Title content={currentCat} />
     {loading ? <div><Loader active></Loader></div> : <div> 
     <div className="main-cat-card-container">
-        {result && currentCocktailByAlcohol.length ?
+        {result &&  currentCocktailByAlcohol.length ?
         currentCocktailByAlcohol.map(elm => (
             <div key={elm.idDrink} className="main-cat-card"><DrinkCard cocktail={elm} viewCocktailDetail={viewCocktailDetail}/></div>
         ))
@@ -122,7 +115,6 @@ const ByAlcohol = ({ getCocktailByAlcohol, viewCocktailDetail, cocktailByAlcohol
     <Pagination 
     nbPages={nbPages} 
     currentPage={currentPage} 
-    changePage={(value) => {setCurrentPage(currentPage + value)}}
     />
     }
     </div>}

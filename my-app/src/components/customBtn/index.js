@@ -3,7 +3,7 @@ import './style.scss';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const CustomBtn = ({content, action, initCurrentPages, clearBtn, url}) => {
+const CustomBtn = ({content, action, initCurrentPage, clearBtn, url}) => {
 
     const urlContent = content.replace(/ /g,"_");
 
@@ -21,7 +21,7 @@ const CustomBtn = ({content, action, initCurrentPages, clearBtn, url}) => {
         
         <div onClick={() => { 
             action(urlContent);
-            initCurrentPages();
+            initCurrentPage();
             clearBtn(content) }} 
             className="button nav-link">
 

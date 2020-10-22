@@ -21,6 +21,9 @@ export const GET_CATEGORY_COCKTAIL_ERROR = 'GET_CATEGORY_COCKTAIL_ERROR';
 export const GET_COCKTAIL_BY_ALCOHOL = 'GET_COCKTAIL_BY_ALCOHOL';
 export const GET_COCKTAIL_BY_ALCOHOL_SUCCESS = 'GET_COCKTAIL_BY_ALCOHOL_SUCCESS';
 export const GET_COCKTAIL_BY_ALCOHOL_ERROR = 'GET_COCKTAIL_BY_ALCOHOL_ERROR';
+export const CURRENT_PAGE_INIT = 'CURRENT_PAGE_INIT';
+export const CURRENT_PAGE_UP = 'CURRENT_PAGE_UP';
+export const CURRENT_PAGE_DOWN = 'CURRENT_PAGE_DOWN';
 
 export const searchInputChange = (payload) => ({
     type: SEARCH_INPUT_CHANGE,
@@ -49,7 +52,7 @@ export const getAllCocktailSuccess = (payload) => ({
     type: GET_ALL_COCKTAIL_SUCCESS,
     payload
 });
-  
+
 
 export const getAllCocktailError = (payload) => ({
     type: GET_ALL_COCKTAIL_ERROR,
@@ -129,4 +132,16 @@ export const getCocktailByAlcoholSuccess = (payload) => ({
 export const getCocktailByAlcoholError = (payload) => ({
     type: GET_COCKTAIL_BY_ALCOHOL_ERROR,
     payload
+})
+
+export const currentPageInit = () => ({
+    type: CURRENT_PAGE_INIT
+})
+
+export const currentPageUp = () => ({
+    type: CURRENT_PAGE_UP
+})
+
+export const currentPageDown = () => ({
+    type: CURRENT_PAGE_DOWN
 })
